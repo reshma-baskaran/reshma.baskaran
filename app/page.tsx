@@ -136,27 +136,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="principles-section">
-        <p className="eyebrow">How I work</p>
-        <div className="principles-grid">
-          <article>
-            <span>01</span>
-            <h3>Start with the problem</h3>
-            <p>Useful work begins with a specific friction worth removing.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Build for reuse</h3>
-            <p>Good systems make the next round faster, clearer, and better.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Show the learning</h3>
-            <p>The method, tradeoffs, and misses are part of the portfolio.</p>
-          </article>
-        </div>
-      </section>
-
       <section className="contact-section">
         <p className="eyebrow">Find me</p>
         <h2>Follow the builds as they ship.</h2>

@@ -222,7 +222,6 @@ a {
 
 .work-section,
 .about-section,
-.principles-section,
 .contact-section {
   border-bottom: 1px solid var(--line);
   padding: 110px 42px;
@@ -357,43 +356,6 @@ a {
   margin: 0 0 24px;
 }
 
-.principles-grid {
-  border-top: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 42px;
-}
-
-.principles-grid article {
-  border-right: 1px solid var(--line);
-  padding: 30px 30px 20px 0;
-}
-
-.principles-grid article:not(:first-child) {
-  padding-left: 30px;
-}
-
-.principles-grid article:last-child {
-  border-right: 0;
-}
-
-.principles-grid span {
-  color: var(--blue);
-  font-family: var(--serif);
-  font-size: 0.8rem;
-}
-
-.principles-grid h3 {
-  font-size: 1.5rem;
-  letter-spacing: -0.035em;
-  margin: 54px 0 12px;
-}
-
-.principles-grid p {
-  margin: 0;
-  max-width: 330px;
-}
-
 .contact-section {
   background: var(--ink);
   color: var(--paper);
@@ -468,7 +430,6 @@ footer {
 
   .work-section,
   .about-section,
-  .principles-section,
   .contact-section {
     padding: 82px 20px;
   }
@@ -487,25 +448,6 @@ footer {
 
   .lane-card {
     min-height: 300px;
-  }
-
-  .principles-grid {
-    display: block;
-  }
-
-  .principles-grid article,
-  .principles-grid article:not(:first-child) {
-    border-bottom: 1px solid var(--line);
-    border-right: 0;
-    padding: 26px 0;
-  }
-
-  .principles-grid article:last-child {
-    border-bottom: 0;
-  }
-
-  .principles-grid h3 {
-    margin-top: 28px;
   }
 
   footer {
