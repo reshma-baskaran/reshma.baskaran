@@ -259,10 +259,14 @@ a {
 }
 
 .lane-card {
+  color: inherit;
   border-bottom: 1px solid var(--line);
   border-right: 1px solid var(--line);
-  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
   padding: 24px;
+  text-decoration: none;
   transition:
     background 180ms ease,
     transform 180ms ease;
@@ -284,6 +288,15 @@ a {
   transform: translateY(-3px);
 }
 
+.card-cover {
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  display: block;
+  margin-bottom: 22px;
+  object-fit: cover;
+  width: 100%;
+}
+
 .card-top {
   display: flex;
   font-family: var(--serif);
@@ -303,7 +316,7 @@ a {
   font-size: clamp(1.8rem, 2.7vw, 3rem);
   letter-spacing: -0.05em;
   line-height: 1;
-  margin: 72px 0 18px;
+  margin: 42px 0 18px;
   max-width: 340px;
 }
 
@@ -317,7 +330,7 @@ a {
   font-size: 0.69rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  margin-top: 30px;
+  margin-top: auto;
   padding-top: 13px;
   text-transform: uppercase;
 }

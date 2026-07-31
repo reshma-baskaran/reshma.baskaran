@@ -1,38 +1,33 @@
-const portfolioLanes = [
+const projects = [
   {
     number: "01",
-    title: "Skills + agents",
+    category: "Demand generation system",
+    title: "Helios ABM Engine",
     description:
-      "Reusable AI workflows built to research, decide, draft, and execute with clear guardrails.",
-    examples: "Codex skills · Agent playbooks · Workflow systems",
+      "An evidence-first account research engine with 866 buying-signal definitions, source-backed scoring, and real account cases.",
+    details: "Signal library · Research CLI · Evidence scoring",
+    cover: "/projects/helios-abm-engine.png",
+    href: "https://github.com/reshma-baskaran/helios-abm-engine",
   },
   {
     number: "02",
-    title: "Prompts",
+    category: "Skill + writing system",
+    title: "Outbound Research & Writing",
     description:
-      "Field-tested prompt systems for research, messaging, analysis, and repeatable GTM work.",
-    examples: "Prompt libraries · Context patterns · Evaluation notes",
+      "A source-backed method for account research, six-touch sequence design, and pre-launch copy QA.",
+    details: "Codex skill · Research map · Sequence validator",
+    cover: "/projects/outbound-research-and-writing.png",
+    href: "https://github.com/reshma-baskaran/outbound-research-and-writing",
   },
   {
     number: "03",
-    title: "Demand gen systems",
+    category: "Agent + knowledge system",
+    title: "Relationship Intelligence Second Brain",
     description:
-      "Practical scripts and pipelines that make campaign execution more consistent and measurable.",
-    examples: "Campaign scripts · Repurposing pipelines · Operating systems",
-  },
-  {
-    number: "04",
-    title: "Experiments + teardowns",
-    description:
-      "Clear hypotheses, honest results, and close reads of growth systems worth learning from.",
-    examples: "Growth experiments · Funnel teardowns · Lessons learned",
-  },
-  {
-    number: "05",
-    title: "Personal projects + apps",
-    description:
-      "Small products and useful tools built to turn an idea into something people can try.",
-    examples: "Apps · Utilities · Creative builds",
+      "An Obsidian system that turns strategic conversations into relationship history, commitments, interests, and recurring briefs.",
+    details: "Codex skill · Vault tooling · Monthly digest",
+    cover: "/projects/relationship-intelligence-second-brain.png",
+    href: "https://github.com/reshma-baskaran/relationship-intelligence-second-brain",
   },
 ];
 
@@ -90,16 +85,28 @@ export default function Home() {
           <h2>What I&apos;m building and documenting.</h2>
         </div>
         <div className="lane-grid">
-          {portfolioLanes.map((lane) => (
-            <article className="lane-card" key={lane.number}>
+          {projects.map((project) => (
+            <a
+              className="lane-card"
+              href={project.href}
+              target="_blank"
+              rel="noreferrer"
+              key={project.number}
+            >
+              <img
+                className="card-cover"
+                src={project.cover}
+                alt=""
+                aria-hidden="true"
+              />
               <div className="card-top">
-                <span>{lane.number}</span>
-                <span className="card-status">Publishing soon</span>
+                <span>{project.number}</span>
+                <span className="card-status">{project.category} ↗</span>
               </div>
-              <h3>{lane.title}</h3>
-              <p>{lane.description}</p>
-              <div className="card-examples">{lane.examples}</div>
-            </article>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="card-examples">{project.details}</div>
+            </a>
           ))}
         </div>
       </section>
