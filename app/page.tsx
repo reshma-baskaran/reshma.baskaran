@@ -6,7 +6,7 @@ const projects = [
     description:
       "An evidence-first account research engine with 866 buying-signal definitions, source-backed scoring, and real account cases.",
     details: "Signal library · Research CLI · Evidence scoring",
-    cover: "/projects/helios-abm-engine.png",
+    cover: "projects/helios-abm-engine.png",
     href: "https://github.com/reshma-baskaran/helios-abm-engine",
   },
   {
@@ -16,7 +16,7 @@ const projects = [
     description:
       "A source-backed method for account research, six-touch sequence design, and pre-launch copy QA.",
     details: "Codex skill · Research map · Sequence validator",
-    cover: "/projects/outbound-research-and-writing.png",
+    cover: "projects/outbound-research-and-writing.png",
     href: "https://github.com/reshma-baskaran/outbound-research-and-writing",
   },
   {
@@ -26,7 +26,7 @@ const projects = [
     description:
       "An Obsidian system that turns strategic conversations into relationship history, commitments, interests, and recurring briefs.",
     details: "Codex skill · Vault tooling · Monthly digest",
-    cover: "/projects/relationship-intelligence-second-brain.png",
+    cover: "projects/relationship-intelligence-second-brain.png",
     href: "https://github.com/reshma-baskaran/relationship-intelligence-second-brain",
   },
 ];
