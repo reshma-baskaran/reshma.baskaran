@@ -37,20 +37,6 @@ build, why I build it, how it works, and what I learn.
 - **Experiments + teardowns** — hypotheses, results, and growth analyses
 - **Personal projects + apps** — useful tools and products built in public
 
-## Publishing standard
-
-Every project I publish should include:
-
-1. A cover image
-2. A concise project description
-3. The problem being solved
-4. How the project works
-5. Setup or usage instructions
-6. Results, learnings, or current status
-
-Use the reusable [project README template](templates/PROJECT_README_TEMPLATE.md)
-for future repositories.
-
 ## Run this site locally
 
 ```bash
