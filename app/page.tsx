@@ -55,7 +55,7 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-kicker">
           <span className="status-dot" aria-hidden="true" />
-          GTM + growth marketer · Systems builder
+          GTM + growth marketer · Systems builder · Hybrid athlete
         </div>
         <h1>
           Growth, built
@@ -127,6 +127,11 @@ export default function Home() {
             This is my working portfolio: a public record of the prompts,
             agents, experiments, scripts, teardowns, and small products I build
             along the way.
+          </p>
+          <p>
+            Outside work, I&apos;m a hybrid athlete training across strength and
+            endurance. Both pursuits draw on the same instinct: build a system,
+            measure what matters, and keep improving it.
           </p>
         </div>
       </section>
