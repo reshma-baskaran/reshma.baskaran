@@ -57,6 +57,13 @@ export default function Home() {
           <span className="status-dot" aria-hidden="true" />
           GTM + growth marketer · Systems builder · Hybrid athlete
         </div>
+        <figure className="hero-portrait">
+          <img
+            src="reshma-baskaran-headshot.png"
+            alt="Reshma Baskaran"
+          />
+          <figcaption>Reshma Baskaran · India</figcaption>
+        </figure>
         <h1>
           Growth, built
           <br />
@@ -72,9 +79,18 @@ export default function Home() {
           </a>
         </div>
         <div className="hero-orbit" aria-hidden="true">
-          <span className="orbit-label orbit-label-one">Research</span>
-          <span className="orbit-label orbit-label-two">Build</span>
-          <span className="orbit-label orbit-label-three">Learn</span>
+          <span className="orbit-label orbit-market">Market</span>
+          <span className="orbit-label orbit-icp">ICP</span>
+          <span className="orbit-label orbit-positioning">Positioning</span>
+          <span className="orbit-label orbit-research">Research</span>
+          <span className="orbit-label orbit-demand">Demand gen</span>
+          <span className="orbit-label orbit-content">Content</span>
+          <span className="orbit-label orbit-outbound">Outbound</span>
+          <span className="orbit-label orbit-partnerships">Partnerships</span>
+          <span className="orbit-label orbit-lifecycle">Lifecycle</span>
+          <span className="orbit-label orbit-experiments">Experiments</span>
+          <span className="orbit-label orbit-revops">RevOps</span>
+          <span className="orbit-label orbit-measurement">Measurement</span>
           <span className="orbit-center">GTM</span>
         </div>
       </section>

@@ -103,6 +103,45 @@ a {
   gap: 9px;
 }
 
+.hero-portrait {
+  background: var(--paper-deep);
+  border: 1px solid var(--ink);
+  margin: 0;
+  padding: 7px 7px 9px;
+  position: absolute;
+  right: 42px;
+  top: 54px;
+  transform: rotate(2deg);
+  width: 156px;
+  z-index: 4;
+}
+
+.hero-portrait::before {
+  background: var(--acid);
+  content: "";
+  height: 20px;
+  position: absolute;
+  right: -9px;
+  top: -9px;
+  width: 20px;
+  z-index: -1;
+}
+
+.hero-portrait img {
+  aspect-ratio: 4 / 5;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.hero-portrait figcaption {
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding-top: 7px;
+  text-transform: uppercase;
+}
+
 .status-dot {
   background: var(--coral);
   border-radius: 50%;
@@ -158,12 +197,12 @@ a {
 .hero-orbit {
   border: 1px solid rgba(24, 24, 22, 0.35);
   border-radius: 50%;
-  bottom: -136px;
-  height: 410px;
+  bottom: 14px;
+  height: 500px;
   position: absolute;
-  right: -48px;
-  transform: rotate(-12deg);
-  width: 410px;
+  right: 18px;
+  transform: rotate(-7deg);
+  width: 500px;
 }
 
 .hero-orbit::before,
@@ -171,12 +210,12 @@ a {
   border: 1px solid rgba(24, 24, 22, 0.18);
   border-radius: 50%;
   content: "";
-  inset: 52px;
+  inset: 68px;
   position: absolute;
 }
 
 .hero-orbit::after {
-  inset: 126px;
+  inset: 154px;
 }
 
 .orbit-center {
@@ -197,27 +236,73 @@ a {
 
 .orbit-label {
   background: var(--paper);
-  font-size: 0.68rem;
+  font-size: 0.58rem;
   font-weight: 800;
   letter-spacing: 0.09em;
-  padding: 5px 8px;
+  padding: 3px 6px;
   position: absolute;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.orbit-label-one {
-  left: 18px;
-  top: 138px;
+.orbit-market {
+  left: 218px;
+  top: -10px;
 }
 
-.orbit-label-two {
-  right: 30px;
-  top: 84px;
+.orbit-icp {
+  left: 57px;
+  top: 73px;
 }
 
-.orbit-label-three {
-  bottom: 32px;
-  left: 174px;
+.orbit-positioning {
+  right: 42px;
+  top: 64px;
+}
+
+.orbit-research {
+  left: -14px;
+  top: 217px;
+}
+
+.orbit-demand {
+  right: -20px;
+  top: 202px;
+}
+
+.orbit-content {
+  left: 118px;
+  top: 116px;
+}
+
+.orbit-outbound {
+  right: 102px;
+  top: 128px;
+}
+
+.orbit-partnerships {
+  left: 87px;
+  top: 253px;
+}
+
+.orbit-lifecycle {
+  right: 73px;
+  top: 276px;
+}
+
+.orbit-experiments {
+  bottom: 72px;
+  right: 48px;
+}
+
+.orbit-revops {
+  bottom: 56px;
+  left: 62px;
+}
+
+.orbit-measurement {
+  bottom: -7px;
+  left: 196px;
 }
 
 .work-section,
@@ -412,14 +497,24 @@ footer {
   }
 
   .hero {
-    min-height: 670px;
+    min-height: auto;
     padding: 52px 20px 38px;
+  }
+
+  .hero-portrait {
+    right: 20px;
+    top: 94px;
+    width: 108px;
+  }
+
+  .hero-portrait figcaption {
+    font-size: 0.46rem;
   }
 
   .hero h1 {
     font-size: clamp(4.1rem, 22vw, 7rem);
     line-height: 0.82;
-    margin-top: 70px;
+    margin-top: 190px;
   }
 
   .hero-bottom {
@@ -429,9 +524,12 @@ footer {
   }
 
   .hero-orbit {
-    bottom: -180px;
+    bottom: auto;
+    margin: 34px 0 -112px calc(50% - 250px);
     opacity: 0.72;
-    right: -180px;
+    position: relative;
+    right: auto;
+    transform: rotate(-7deg) scale(0.72);
   }
 
   .work-section,
