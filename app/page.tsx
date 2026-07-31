@@ -139,14 +139,32 @@ export default function Home() {
       <section className="contact-section">
         <p className="eyebrow">Find me</p>
         <h2>Follow the builds as they ship.</h2>
-        <a
-          className="button-link"
-          href="https://github.com/reshma-baskaran"
-          target="_blank"
-          rel="noreferrer"
-        >
-          View GitHub profile <span aria-hidden="true">↗</span>
-        </a>
+        <div className="contact-links">
+          <a
+            className="button-link"
+            href="https://github.com/reshma-baskaran"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub <span aria-hidden="true">↗</span>
+          </a>
+          <a
+            className="button-link"
+            href="https://www.linkedin.com/in/reshma-baskaran"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn <span aria-hidden="true">↗</span>
+          </a>
+          <a
+            className="button-link"
+            href="https://x.com/BaskaranReshma"
+            target="_blank"
+            rel="noreferrer"
+          >
+            X · @BaskaranReshma <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </section>
 
       <footer>

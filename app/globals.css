@@ -366,6 +366,12 @@ a {
   max-width: 780px;
 }
 
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .button-link {
   align-items: center;
   background: var(--acid);
