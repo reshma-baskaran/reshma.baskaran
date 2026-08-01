@@ -78,32 +78,23 @@ export default function Home() {
             Explore the work <span aria-hidden="true">↓</span>
           </a>
         </div>
+
+        <div
+          className="hero-capabilities"
+          aria-label="Core marketing capabilities"
+        >
+          <span>Demand generation</span>
+          <span>Integrated GTM</span>
+          <span>Market intelligence</span>
+          <span>Lifecycle growth</span>
+          <span>Partner marketing</span>
+          <span>Revenue ownership</span>
+        </div>
+
         <div className="hero-orbit" aria-hidden="true">
-          <span className="orbit-track orbit-demand">
-            <span className="orbit-label">Demand generation</span>
-          </span>
-          <span className="orbit-track orbit-research">
-            <span className="orbit-label">Market intelligence</span>
-          </span>
-          <span className="orbit-track orbit-positioning">
-            <span className="orbit-label">GTM strategy</span>
-          </span>
-          <span className="orbit-track orbit-inbound">
-            <span className="orbit-label">Integrated marketing</span>
-          </span>
-          <span className="orbit-track orbit-lifecycle">
-            <span className="orbit-label">Lifecycle growth</span>
-          </span>
-          <span className="orbit-track orbit-revenue">
-            <span className="orbit-label">Revenue ownership</span>
-          </span>
-          <span className="orbit-track orbit-account">
-            <span className="orbit-label">Account-based growth</span>
-          </span>
-          <span className="orbit-track orbit-pipeline">
-            <span className="orbit-label">Pipeline creation</span>
-          </span>
-          <span className="orbit-center">GTM</span>
+          <span className="orbit-ring orbit-ring-outer" />
+          <span className="orbit-ring orbit-ring-middle" />
+          <span className="orbit-ring orbit-ring-inner" />
         </div>
       </section>
 
