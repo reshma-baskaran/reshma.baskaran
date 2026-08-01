@@ -79,14 +79,30 @@ export default function Home() {
           </a>
         </div>
         <div className="hero-orbit" aria-hidden="true">
-          <span className="orbit-label orbit-demand">Demand generation</span>
-          <span className="orbit-label orbit-research">Market intelligence</span>
-          <span className="orbit-label orbit-positioning">GTM strategy</span>
-          <span className="orbit-label orbit-inbound">Integrated marketing</span>
-          <span className="orbit-label orbit-lifecycle">Lifecycle growth</span>
-          <span className="orbit-label orbit-revenue">Revenue ownership</span>
-          <span className="orbit-label orbit-account">Account-based growth</span>
-          <span className="orbit-label orbit-pipeline">Pipeline creation</span>
+          <span className="orbit-track orbit-demand">
+            <span className="orbit-label">Demand generation</span>
+          </span>
+          <span className="orbit-track orbit-research">
+            <span className="orbit-label">Market intelligence</span>
+          </span>
+          <span className="orbit-track orbit-positioning">
+            <span className="orbit-label">GTM strategy</span>
+          </span>
+          <span className="orbit-track orbit-inbound">
+            <span className="orbit-label">Integrated marketing</span>
+          </span>
+          <span className="orbit-track orbit-lifecycle">
+            <span className="orbit-label">Lifecycle growth</span>
+          </span>
+          <span className="orbit-track orbit-revenue">
+            <span className="orbit-label">Revenue ownership</span>
+          </span>
+          <span className="orbit-track orbit-account">
+            <span className="orbit-label">Account-based growth</span>
+          </span>
+          <span className="orbit-track orbit-pipeline">
+            <span className="orbit-label">Pipeline creation</span>
+          </span>
           <span className="orbit-center">GTM</span>
         </div>
       </section>

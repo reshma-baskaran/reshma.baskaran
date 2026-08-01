@@ -197,13 +197,11 @@ a {
 .hero-orbit {
   border: 1px solid rgba(24, 24, 22, 0.35);
   border-radius: 50%;
-  animation: orbit-drift 10s ease-in-out infinite;
   bottom: -118px;
   height: 500px;
   position: absolute;
   right: -64px;
   transform-origin: center;
-  will-change: transform;
   width: 500px;
 }
 
@@ -246,68 +244,111 @@ a {
   width: 58px;
 }
 
+.orbit-track {
+  --orbit-angle: 0deg;
+  --orbit-counter-angle: 0deg;
+  --orbit-duration: 20s;
+  --orbit-radius: 210px;
+  animation: orbit-track-spin var(--orbit-duration) linear infinite;
+  height: 0;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: rotate(var(--orbit-angle));
+  transform-origin: 0 0;
+  width: 0;
+  will-change: transform;
+}
+
 .orbit-label {
   background: var(--paper);
   font-size: 0.58rem;
   font-weight: 800;
   letter-spacing: 0.09em;
+  left: var(--orbit-radius);
   padding: 3px 6px;
   position: absolute;
+  top: 0;
   text-transform: uppercase;
+  transform: translate(-50%, -50%) rotate(var(--orbit-counter-angle));
   white-space: nowrap;
+  animation: orbit-label-counter var(--orbit-duration) linear infinite;
 }
 
 .orbit-demand {
-  left: 154px;
-  top: 18px;
+  --orbit-angle: -112deg;
+  --orbit-counter-angle: 112deg;
+  --orbit-duration: 21s;
+  --orbit-radius: 218px;
 }
 
 .orbit-positioning {
-  right: 78px;
-  top: 55px;
+  --orbit-angle: -48deg;
+  --orbit-counter-angle: 48deg;
+  --orbit-duration: 27s;
+  --orbit-radius: 220px;
 }
 
 .orbit-research {
-  left: -14px;
-  top: 170px;
+  --orbit-angle: -164deg;
+  --orbit-counter-angle: 164deg;
+  --orbit-duration: 31s;
+  --orbit-radius: 206px;
 }
 
 .orbit-inbound {
-  right: 72px;
-  top: 180px;
+  --orbit-angle: -20deg;
+  --orbit-counter-angle: 20deg;
+  --orbit-duration: 18s;
+  --orbit-radius: 190px;
 }
 
 .orbit-lifecycle {
-  right: 90px;
-  top: 275px;
+  --orbit-angle: 12deg;
+  --orbit-counter-angle: -12deg;
+  --orbit-duration: 24s;
+  --orbit-radius: 190px;
 }
 
 .orbit-revenue {
-  bottom: 150px;
-  left: 204px;
+  --orbit-angle: 96deg;
+  --orbit-counter-angle: -96deg;
+  --orbit-duration: 34s;
+  --orbit-radius: 128px;
 }
 
 .orbit-account {
-  left: 32px;
-  top: 275px;
+  --orbit-angle: 168deg;
+  --orbit-counter-angle: -168deg;
+  --orbit-duration: 26s;
+  --orbit-radius: 198px;
 }
 
 .orbit-pipeline {
-  bottom: 185px;
-  left: 32px;
+  --orbit-angle: 154deg;
+  --orbit-counter-angle: -154deg;
+  --orbit-duration: 16s;
+  --orbit-radius: 218px;
 }
 
-@keyframes orbit-drift {
-  0% {
-    transform: rotate(-7deg) translate3d(-8px, 4px, 0);
+@keyframes orbit-track-spin {
+  from {
+    transform: rotate(var(--orbit-angle));
   }
 
-  50% {
-    transform: rotate(-3deg) translate3d(11px, -6px, 0);
+  to {
+    transform: rotate(calc(var(--orbit-angle) + 360deg));
+  }
+}
+
+@keyframes orbit-label-counter {
+  from {
+    transform: translate(-50%, -50%) rotate(var(--orbit-counter-angle));
   }
 
-  100% {
-    transform: rotate(-6deg) translate3d(3px, 8px, 0);
+  to {
+    transform: translate(-50%, -50%)
+      rotate(calc(var(--orbit-counter-angle) - 360deg));
   }
 }
 
@@ -321,20 +362,6 @@ a {
   50% {
     opacity: 0.42;
     transform: scale(1.035);
-  }
-}
-
-@keyframes orbit-drift-mobile {
-  0% {
-    transform: rotate(-7deg) scale(0.72) translate3d(-8px, 4px, 0);
-  }
-
-  50% {
-    transform: rotate(-3deg) scale(0.72) translate3d(11px, -6px, 0);
-  }
-
-  100% {
-    transform: rotate(-6deg) scale(0.72) translate3d(3px, 8px, 0);
   }
 }
 
@@ -557,13 +584,12 @@ footer {
   }
 
   .hero-orbit {
-    animation-name: orbit-drift-mobile;
     bottom: auto;
     margin: 34px 0 -112px calc(50% - 250px);
     opacity: 0.72;
     position: relative;
     right: auto;
-    transform: rotate(-7deg) scale(0.72);
+    transform: scale(0.72);
   }
 
   .work-section,
@@ -607,6 +633,11 @@ footer {
 
   .hero-orbit::before,
   .hero-orbit::after {
+    animation: none;
+  }
+
+  .orbit-track,
+  .orbit-label {
     animation: none;
   }
 
