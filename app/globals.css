@@ -523,11 +523,24 @@ a {
 }
 
 .scope-card {
+  --scope-step: 0px;
   border-right: 1px solid var(--line);
   display: flex;
   flex-direction: column;
   min-height: 270px;
-  padding: 24px;
+  padding: calc(24px + var(--scope-step)) 24px 24px;
+}
+
+.scope-card:nth-child(1) {
+  --scope-step: 72px;
+}
+
+.scope-card:nth-child(2) {
+  --scope-step: 48px;
+}
+
+.scope-card:nth-child(3) {
+  --scope-step: 24px;
 }
 
 .scope-number {
@@ -540,7 +553,7 @@ a {
   font-size: clamp(1.45rem, 2.3vw, 2.35rem);
   letter-spacing: -0.05em;
   line-height: 1;
-  margin: auto 0 14px;
+  margin: 18px 0 14px;
   max-width: 240px;
 }
 
@@ -677,6 +690,7 @@ footer {
   .scope-card {
     border-bottom: 1px solid var(--line);
     min-height: 220px;
+    padding: 24px;
   }
 
   footer {
