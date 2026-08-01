@@ -374,10 +374,47 @@ a {
 }
 
 .section-heading {
-  align-items: flex-end;
+  align-items: flex-start;
   display: flex;
   justify-content: space-between;
   margin-bottom: 54px;
+}
+
+.section-label {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  padding-top: 7px;
+}
+
+.section-label::before {
+  background: var(--coral);
+  border-radius: 50%;
+  content: "";
+  height: 7px;
+  width: 7px;
+}
+
+.section-index {
+  color: var(--blue);
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  letter-spacing: 0;
+}
+
+.section-label-text {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lime-highlight {
+  background: var(--acid);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  color: var(--ink);
+  padding: 0 0.08em 0.03em;
 }
 
 .section-heading h2,

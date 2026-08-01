@@ -109,7 +109,10 @@ export default function Home() {
 
       <section className="work-section" id="work">
         <div className="section-heading">
-          <p className="eyebrow">Selected systems</p>
+          <div className="section-label">
+            <span className="section-index">01</span>
+            <span className="section-label-text">Selected systems</span>
+          </div>
           <h2>What I&apos;m building and documenting.</h2>
         </div>
         <div className="lane-grid">
@@ -141,8 +144,13 @@ export default function Home() {
 
       <section className="about-section" id="about">
         <div>
-          <p className="eyebrow">About</p>
-          <h2>Part marketer, part operator, always curious.</h2>
+          <div className="section-label">
+            <span className="section-index">02</span>
+            <span className="section-label-text">About</span>
+          </div>
+          <h2>
+            Part marketer, part operator, <span className="lime-highlight">always curious.</span>
+          </h2>
         </div>
         <div className="about-copy">
           <p>
@@ -166,8 +174,13 @@ export default function Home() {
 
       <section className="scope-section" id="scope">
         <div className="section-heading">
-          <p className="eyebrow">Scope</p>
-          <h2>From category creation to scale.</h2>
+          <div className="section-label">
+            <span className="section-index">03</span>
+            <span className="section-label-text">Operating range</span>
+          </div>
+          <h2>
+            From category <span className="lime-highlight">creation to scale.</span>
+          </h2>
         </div>
         <div className="scope-meta" aria-label="Experience scope">
           <span>5+ years</span>
@@ -199,7 +212,10 @@ export default function Home() {
       </section>
 
       <section className="contact-section">
-        <p className="eyebrow">Find me</p>
+        <div className="section-label">
+          <span className="section-index">04</span>
+          <span className="section-label-text">Find me</span>
+        </div>
         <h2>Follow the builds as they ship.</h2>
         <div className="contact-links">
           <a
