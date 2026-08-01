@@ -197,12 +197,13 @@ a {
 .hero-orbit {
   border: 1px solid rgba(24, 24, 22, 0.35);
   border-radius: 50%;
-  animation: orbit-drift 18s ease-in-out infinite alternate;
+  animation: orbit-drift 10s ease-in-out infinite;
   bottom: -118px;
   height: 500px;
   position: absolute;
   right: -64px;
   transform-origin: center;
+  will-change: transform;
   width: 500px;
 }
 
@@ -217,6 +218,16 @@ a {
 
 .hero-orbit::after {
   inset: 154px;
+}
+
+.hero-orbit::before {
+  animation: ring-breathe 7s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.hero-orbit::after {
+  animation: ring-breathe 9s ease-in-out infinite reverse;
+  transform-origin: center;
 }
 
 .orbit-center {
@@ -271,7 +282,7 @@ a {
   top: 275px;
 }
 
-.orbit-qualified {
+.orbit-revenue {
   bottom: 150px;
   left: 204px;
 }
@@ -287,22 +298,43 @@ a {
 }
 
 @keyframes orbit-drift {
-  from {
-    transform: rotate(-7deg) translate3d(0, 0, 0);
+  0% {
+    transform: rotate(-7deg) translate3d(-8px, 4px, 0);
   }
 
-  to {
-    transform: rotate(-4deg) translate3d(8px, -5px, 0);
+  50% {
+    transform: rotate(-3deg) translate3d(11px, -6px, 0);
+  }
+
+  100% {
+    transform: rotate(-6deg) translate3d(3px, 8px, 0);
+  }
+}
+
+@keyframes ring-breathe {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.42;
+    transform: scale(1.035);
   }
 }
 
 @keyframes orbit-drift-mobile {
-  from {
-    transform: rotate(-7deg) scale(0.72) translate3d(0, 0, 0);
+  0% {
+    transform: rotate(-7deg) scale(0.72) translate3d(-8px, 4px, 0);
   }
 
-  to {
-    transform: rotate(-4deg) scale(0.72) translate3d(8px, -5px, 0);
+  50% {
+    transform: rotate(-3deg) scale(0.72) translate3d(11px, -6px, 0);
+  }
+
+  100% {
+    transform: rotate(-6deg) scale(0.72) translate3d(3px, 8px, 0);
   }
 }
 
@@ -570,6 +602,11 @@ footer {
   }
 
   .hero-orbit {
+    animation: none;
+  }
+
+  .hero-orbit::before,
+  .hero-orbit::after {
     animation: none;
   }
 

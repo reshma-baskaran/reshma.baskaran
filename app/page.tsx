@@ -80,13 +80,13 @@ export default function Home() {
         </div>
         <div className="hero-orbit" aria-hidden="true">
           <span className="orbit-label orbit-demand">Demand generation</span>
-          <span className="orbit-label orbit-research">Market research</span>
-          <span className="orbit-label orbit-positioning">Integrated marketing</span>
-          <span className="orbit-label orbit-inbound">Inbound + outbound</span>
-          <span className="orbit-label orbit-lifecycle">Lifecycle marketing</span>
-          <span className="orbit-label orbit-qualified">Qualified demand</span>
-          <span className="orbit-label orbit-account">Account intelligence</span>
-          <span className="orbit-label orbit-pipeline">Pipeline ownership</span>
+          <span className="orbit-label orbit-research">Market intelligence</span>
+          <span className="orbit-label orbit-positioning">GTM strategy</span>
+          <span className="orbit-label orbit-inbound">Integrated marketing</span>
+          <span className="orbit-label orbit-lifecycle">Lifecycle growth</span>
+          <span className="orbit-label orbit-revenue">Revenue ownership</span>
+          <span className="orbit-label orbit-account">Account-based growth</span>
+          <span className="orbit-label orbit-pipeline">Pipeline creation</span>
           <span className="orbit-center">GTM</span>
         </div>
       </section>
