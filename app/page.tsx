@@ -5,7 +5,7 @@ const projects = [
     title: "Helios ABM Engine",
     description:
       "An evidence-first account research engine with 866 buying-signal definitions, source-backed scoring, and real account cases.",
-    details: "Signal library · Research CLI · Evidence scoring",
+    details: "Signal library · Research engine · Account intelligence",
     cover: "projects/helios-abm-engine.png",
     href: "https://github.com/reshma-baskaran/helios-abm-engine",
   },
@@ -15,7 +15,7 @@ const projects = [
     title: "Outbound Research & Writing",
     description:
       "A source-backed method for account research, six-touch sequence design, and pre-launch copy QA.",
-    details: "Codex skill · Research map · Sequence validator",
+    details: "Account research · Message architecture · Sequence QA",
     cover: "projects/outbound-research-and-writing.png",
     href: "https://github.com/reshma-baskaran/outbound-research-and-writing",
   },
@@ -25,7 +25,7 @@ const projects = [
     title: "Relationship Intelligence Second Brain",
     description:
       "An Obsidian system that turns strategic conversations into relationship history, commitments, interests, and recurring briefs.",
-    details: "Codex skill · Vault tooling · Monthly digest",
+    details: "Relationship history · Open items · Recurring briefs",
     cover: "projects/relationship-intelligence-second-brain.png",
     href: "https://github.com/reshma-baskaran/relationship-intelligence-second-brain",
   },
@@ -55,7 +55,7 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-kicker">
           <span className="status-dot" aria-hidden="true" />
-          GTM + growth marketer · Systems builder · Hybrid athlete
+          GTM engineer · Growth hacker · Hybrid athlete
         </div>
         <figure className="hero-portrait">
           <img
@@ -79,18 +79,14 @@ export default function Home() {
           </a>
         </div>
         <div className="hero-orbit" aria-hidden="true">
-          <span className="orbit-label orbit-market">Market</span>
-          <span className="orbit-label orbit-icp">ICP</span>
-          <span className="orbit-label orbit-positioning">Positioning</span>
-          <span className="orbit-label orbit-research">Research</span>
-          <span className="orbit-label orbit-demand">Demand gen</span>
-          <span className="orbit-label orbit-content">Content</span>
-          <span className="orbit-label orbit-outbound">Outbound</span>
-          <span className="orbit-label orbit-partnerships">Partnerships</span>
-          <span className="orbit-label orbit-lifecycle">Lifecycle</span>
-          <span className="orbit-label orbit-experiments">Experiments</span>
-          <span className="orbit-label orbit-revops">RevOps</span>
-          <span className="orbit-label orbit-measurement">Measurement</span>
+          <span className="orbit-label orbit-demand">Demand generation</span>
+          <span className="orbit-label orbit-research">Market research</span>
+          <span className="orbit-label orbit-positioning">Integrated marketing</span>
+          <span className="orbit-label orbit-inbound">Inbound + outbound</span>
+          <span className="orbit-label orbit-lifecycle">Lifecycle marketing</span>
+          <span className="orbit-label orbit-qualified">Qualified demand</span>
+          <span className="orbit-label orbit-account">Account intelligence</span>
+          <span className="orbit-label orbit-pipeline">Pipeline ownership</span>
           <span className="orbit-center">GTM</span>
         </div>
       </section>

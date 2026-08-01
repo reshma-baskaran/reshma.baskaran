@@ -197,11 +197,12 @@ a {
 .hero-orbit {
   border: 1px solid rgba(24, 24, 22, 0.35);
   border-radius: 50%;
-  bottom: 14px;
+  animation: orbit-drift 18s ease-in-out infinite alternate;
+  bottom: -118px;
   height: 500px;
   position: absolute;
-  right: 18px;
-  transform: rotate(-7deg);
+  right: -64px;
+  transform-origin: center;
   width: 500px;
 }
 
@@ -245,64 +246,64 @@ a {
   white-space: nowrap;
 }
 
-.orbit-market {
-  left: 218px;
-  top: -10px;
-}
-
-.orbit-icp {
-  left: 57px;
-  top: 73px;
+.orbit-demand {
+  left: 154px;
+  top: 18px;
 }
 
 .orbit-positioning {
-  right: 42px;
-  top: 64px;
+  right: 78px;
+  top: 55px;
 }
 
 .orbit-research {
   left: -14px;
-  top: 217px;
+  top: 170px;
 }
 
-.orbit-demand {
-  right: -20px;
-  top: 202px;
-}
-
-.orbit-content {
-  left: 118px;
-  top: 116px;
-}
-
-.orbit-outbound {
-  right: 102px;
-  top: 128px;
-}
-
-.orbit-partnerships {
-  left: 87px;
-  top: 253px;
+.orbit-inbound {
+  right: 72px;
+  top: 180px;
 }
 
 .orbit-lifecycle {
-  right: 73px;
-  top: 276px;
+  right: 90px;
+  top: 275px;
 }
 
-.orbit-experiments {
-  bottom: 72px;
-  right: 48px;
+.orbit-qualified {
+  bottom: 150px;
+  left: 204px;
 }
 
-.orbit-revops {
-  bottom: 56px;
-  left: 62px;
+.orbit-account {
+  left: 32px;
+  top: 275px;
 }
 
-.orbit-measurement {
-  bottom: -7px;
-  left: 196px;
+.orbit-pipeline {
+  bottom: 185px;
+  left: 32px;
+}
+
+@keyframes orbit-drift {
+  from {
+    transform: rotate(-7deg) translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: rotate(-4deg) translate3d(8px, -5px, 0);
+  }
+}
+
+@keyframes orbit-drift-mobile {
+  from {
+    transform: rotate(-7deg) scale(0.72) translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: rotate(-4deg) scale(0.72) translate3d(8px, -5px, 0);
+  }
 }
 
 .work-section,
@@ -524,6 +525,7 @@ footer {
   }
 
   .hero-orbit {
+    animation-name: orbit-drift-mobile;
     bottom: auto;
     margin: 34px 0 -112px calc(50% - 250px);
     opacity: 0.72;
@@ -565,6 +567,10 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .hero-orbit {
+    animation: none;
   }
 
   * {
