@@ -367,6 +367,7 @@ a {
 
 .work-section,
 .about-section,
+.scope-section,
 .contact-section {
   border-bottom: 1px solid var(--line);
   padding: 110px 42px;
@@ -501,6 +502,56 @@ a {
   margin: 0 0 24px;
 }
 
+.scope-meta {
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.69rem;
+  font-weight: 800;
+  gap: 18px 26px;
+  letter-spacing: 0.08em;
+  margin-bottom: 32px;
+  padding: 16px 0;
+  text-transform: uppercase;
+}
+
+.scope-grid {
+  border-left: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.scope-card {
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  min-height: 270px;
+  padding: 24px;
+}
+
+.scope-number {
+  color: var(--blue);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+}
+
+.scope-card h3 {
+  font-size: clamp(1.45rem, 2.3vw, 2.35rem);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin: auto 0 14px;
+  max-width: 240px;
+}
+
+.scope-card p {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  line-height: 1.35;
+  margin: 0;
+  max-width: 260px;
+}
+
 .contact-section {
   background: var(--ink);
   color: var(--paper);
@@ -594,6 +645,7 @@ footer {
 
   .work-section,
   .about-section,
+  .scope-section,
   .contact-section {
     padding: 82px 20px;
   }
@@ -612,6 +664,19 @@ footer {
 
   .lane-card {
     min-height: 300px;
+  }
+
+  .scope-meta {
+    gap: 12px;
+  }
+
+  .scope-grid {
+    display: block;
+  }
+
+  .scope-card {
+    border-bottom: 1px solid var(--line);
+    min-height: 220px;
   }
 
   footer {

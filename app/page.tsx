@@ -164,6 +164,40 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="scope-section" id="scope">
+        <div className="section-heading">
+          <p className="eyebrow">Scope</p>
+          <h2>From category creation to scale.</h2>
+        </div>
+        <div className="scope-meta" aria-label="Experience scope">
+          <span>5+ years</span>
+          <span>India · US · Southeast Asia · Middle East</span>
+          <span>Unicorn-scale startup experience</span>
+        </div>
+        <div className="scope-grid">
+          <article className="scope-card">
+            <span className="scope-number">−1→0</span>
+            <h3>Category creation</h3>
+            <p>Working before the market has a shared language or playbook.</p>
+          </article>
+          <article className="scope-card">
+            <span className="scope-number">0→1</span>
+            <h3>Build the first motion</h3>
+            <p>Turning a new idea into a clear audience, narrative, and GTM system.</p>
+          </article>
+          <article className="scope-card">
+            <span className="scope-number">1→10</span>
+            <h3>Make growth repeatable</h3>
+            <p>Connecting research, campaigns, lifecycle, and measurement into a system.</p>
+          </article>
+          <article className="scope-card">
+            <span className="scope-number">10→scale</span>
+            <h3>Operate through complexity</h3>
+            <p>Building with more stakeholders, markets, and operating constraints.</p>
+          </article>
+        </div>
+      </section>
+
       <section className="contact-section">
         <p className="eyebrow">Find me</p>
         <h2>Follow the builds as they ship.</h2>
