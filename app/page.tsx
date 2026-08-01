@@ -2,12 +2,12 @@ const projects = [
   {
     number: "01",
     category: "Demand generation system",
-    title: "Helios ABM Engine",
+    title: "ABM Engine",
     description:
       "An evidence-first account research engine with 866 buying-signal definitions, source-backed scoring, and real account cases.",
     details: "Signal library · Research engine · Account intelligence",
-    cover: "projects/helios-abm-engine.png",
-    href: "https://github.com/reshma-baskaran/helios-abm-engine",
+    cover: "projects/abm-engine.png",
+    href: "https://github.com/reshma-baskaran/abm-engine",
   },
   {
     number: "02",
