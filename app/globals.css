@@ -227,19 +227,20 @@ a {
 }
 
 .hero-orbit {
-  bottom: -360px;
-  height: 780px;
+  bottom: -135px;
+  height: 560px;
   pointer-events: none;
   position: absolute;
-  right: -390px;
-  width: 780px;
+  right: -95px;
+  width: 560px;
   z-index: 1;
 }
 
 .orbit-ring {
   --orbit-duration: 60s;
+  --orbit-start: 0deg;
   animation: orbit-ring-spin var(--orbit-duration) linear infinite;
-  border: 1px solid rgba(24, 24, 22, 0.22);
+  border: 1px solid rgba(24, 24, 22, 0.2);
   border-radius: 50%;
   position: absolute;
   transform-origin: center;
@@ -248,38 +249,81 @@ a {
 
 .orbit-ring::before {
   background: var(--acid);
+  border: 1px solid rgba(24, 24, 22, 0.28);
   border-radius: 50%;
   content: "";
-  height: 11px;
+  height: 10px;
   left: 50%;
   position: absolute;
   top: -6px;
   transform: translateX(-50%);
-  width: 11px;
+  width: 10px;
 }
 
 .orbit-ring-outer {
-  --orbit-duration: 48s;
+  --orbit-duration: 54s;
+  --orbit-start: 18deg;
+  border-color: rgba(24, 24, 22, 0.32);
   inset: 0;
 }
 
 .orbit-ring-middle {
-  --orbit-duration: 64s;
-  inset: 90px;
+  --orbit-duration: 70s;
+  --orbit-start: 124deg;
+  border-color: rgba(24, 24, 22, 0.24);
+  inset: 74px;
 }
 
 .orbit-ring-inner {
-  --orbit-duration: 82s;
-  inset: 180px;
+  --orbit-duration: 88s;
+  --orbit-start: 236deg;
+  border-color: rgba(24, 24, 22, 0.19);
+  inset: 148px;
+}
+
+.orbit-ring-core {
+  --orbit-duration: 108s;
+  --orbit-start: 304deg;
+  border-color: rgba(24, 24, 22, 0.15);
+  inset: 218px;
+}
+
+.orbit-ring-middle::before {
+  height: 9px;
+  width: 9px;
+}
+
+.orbit-ring-inner::before,
+.orbit-ring-core::before {
+  height: 8px;
+  width: 8px;
+}
+
+.orbit-center {
+  align-items: center;
+  background: var(--acid);
+  border: 1px solid rgba(24, 24, 22, 0.32);
+  border-radius: 50%;
+  display: flex;
+  font-size: 0.63rem;
+  font-weight: 900;
+  height: 64px;
+  justify-content: center;
+  left: 50%;
+  letter-spacing: 0.1em;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
 }
 
 @keyframes orbit-ring-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(var(--orbit-start));
   }
 
   to {
-    transform: rotate(360deg);
+    transform: rotate(calc(var(--orbit-start) + 360deg));
   }
 }
 
@@ -607,19 +651,29 @@ footer {
   }
 
   .hero-orbit {
-    bottom: 74px;
-    height: 440px;
-    opacity: 0.58;
-    right: -280px;
-    width: 440px;
+    bottom: 90px;
+    height: 360px;
+    opacity: 0.62;
+    right: -105px;
+    width: 360px;
   }
 
   .orbit-ring-middle {
-    inset: 56px;
+    inset: 48px;
   }
 
   .orbit-ring-inner {
-    inset: 112px;
+    inset: 96px;
+  }
+
+  .orbit-ring-core {
+    inset: 140px;
+  }
+
+  .orbit-center {
+    font-size: 0.55rem;
+    height: 48px;
+    width: 48px;
   }
 
   .hero-capabilities {

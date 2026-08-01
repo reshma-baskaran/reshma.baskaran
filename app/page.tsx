@@ -95,6 +95,8 @@ export default function Home() {
           <span className="orbit-ring orbit-ring-outer" />
           <span className="orbit-ring orbit-ring-middle" />
           <span className="orbit-ring orbit-ring-inner" />
+          <span className="orbit-ring orbit-ring-core" />
+          <span className="orbit-center">GTM</span>
         </div>
       </section>
 
