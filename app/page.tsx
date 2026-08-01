@@ -4,7 +4,7 @@ const projects = [
     category: "Demand generation system",
     title: "ABM Engine",
     description:
-      "An evidence-first account research engine with 866 buying-signal definitions, source-backed scoring, and real account cases.",
+      "An evidence-first account research starter kit with 866 buying-signal definitions, source-backed scoring, and public research cases.",
     details: "Signal library · Research engine · Account intelligence",
     cover: "projects/abm-engine.png",
     href: "https://github.com/reshma-baskaran/abm-engine",
@@ -14,7 +14,7 @@ const projects = [
     category: "Skill + writing system",
     title: "Outbound Research & Writing",
     description:
-      "A source-backed method for account research, six-touch sequence design, and pre-launch copy QA.",
+      "A source-backed starter kit for account research, six-touch sequence design, and pre-launch copy QA.",
     details: "Account research · Message architecture · Sequence QA",
     cover: "projects/outbound-research-and-writing.png",
     href: "https://github.com/reshma-baskaran/outbound-research-and-writing",
