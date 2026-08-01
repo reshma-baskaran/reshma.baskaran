@@ -410,11 +410,17 @@ a {
 }
 
 .lime-highlight {
-  background: var(--acid);
+  background: linear-gradient(
+    to bottom,
+    transparent 58%,
+    var(--acid) 58%,
+    var(--acid) 84%,
+    transparent 84%
+  );
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   color: var(--ink);
-  padding: 0 0.08em 0.03em;
+  padding: 0 0.08em;
 }
 
 .section-heading h2,
