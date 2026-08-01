@@ -213,7 +213,6 @@ export default function Home() {
 
       <section className="contact-section">
         <div className="section-label">
-          <span className="section-index">04</span>
           <span className="section-label-text">Find me</span>
         </div>
         <h2>Follow the builds as they ship.</h2>
