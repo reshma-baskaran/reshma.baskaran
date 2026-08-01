@@ -21,11 +21,11 @@ const projects = [
   },
   {
     number: "03",
-    category: "Agent + knowledge system",
+    category: "Relationship intelligence system",
     title: "Relationship Intelligence Second Brain",
     description:
-      "An Obsidian system that turns strategic conversations into relationship history, commitments, interests, and recurring briefs.",
-    details: "Relationship history · Open items · Recurring briefs",
+      "A reusable Obsidian framework that turns strategic conversations into traceable relationship history, commitments, interests, and recurring briefs.",
+    details: "Vault scaffold · Provenance rules · Recurring briefs",
     cover: "projects/relationship-intelligence-second-brain.png",
     href: "https://github.com/reshma-baskaran/relationship-intelligence-second-brain",
   },
