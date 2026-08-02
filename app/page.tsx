@@ -147,7 +147,7 @@ export default function Home() {
               <p>{project.description}</p>
               <div className="card-examples">{project.details}</div>
               <span className="card-action">
-                View project
+                Explore system
                 <span className="card-action-icon" aria-hidden="true">
                   ↗
                 </span>
