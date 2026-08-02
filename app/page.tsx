@@ -133,12 +133,9 @@ export default function Home() {
               rel="noreferrer"
               key={project.number}
             >
-              <img
-                className="card-cover"
-                src={project.cover}
-                alt=""
-                aria-hidden="true"
-              />
+              <div className="card-cover" aria-hidden="true">
+                <img className="card-cover-image" src={project.cover} alt="" />
+              </div>
               <div className="card-top">
                 <span>{project.number}</span>
                 <span className="card-status">{project.category} ↗</span>

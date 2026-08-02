@@ -474,11 +474,27 @@ a {
 
 .card-cover {
   aspect-ratio: 16 / 9;
+  background: var(--paper-deep);
   border: 1px solid var(--line);
-  display: block;
   margin-bottom: 22px;
-  object-fit: cover;
+  overflow: hidden;
+  position: relative;
   width: 100%;
+}
+
+.card-cover-image {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.9);
+  transform-origin: right center;
+  transition: transform 300ms ease;
+  width: 100%;
+}
+
+.lane-card:hover .card-cover-image,
+.lane-card:focus-visible .card-cover-image {
+  transform: scale(1.96);
 }
 
 .card-top {
