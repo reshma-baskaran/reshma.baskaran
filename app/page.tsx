@@ -6,7 +6,7 @@ const projects = [
     description:
       "An evidence-first account research starter kit with 866 buying-signal definitions, source-backed scoring, and public research cases.",
     details: "Signal library · Research engine · Account intelligence",
-    cover: "projects/abm-engine.png",
+    visual: "signals" as const,
     href: "https://github.com/reshma-baskaran/abm-engine",
   },
   {
@@ -16,7 +16,7 @@ const projects = [
     description:
       "A source-backed starter kit for account research, six-touch sequence design, and pre-launch copy QA.",
     details: "Account research · Message architecture · Sequence QA",
-    cover: "projects/outbound-research-and-writing.png",
+    visual: "sequence" as const,
     href: "https://github.com/reshma-baskaran/outbound-research-and-writing",
   },
   {
@@ -26,7 +26,7 @@ const projects = [
     description:
       "A reusable Obsidian framework that turns strategic conversations into traceable relationship history, commitments, interests, and recurring briefs.",
     details: "Vault scaffold · Provenance rules · Recurring briefs",
-    cover: "projects/relationship-intelligence-second-brain.png",
+    visual: "memory" as const,
     href: "https://github.com/reshma-baskaran/relationship-intelligence-second-brain",
   },
 ];
@@ -40,6 +40,88 @@ const capabilities = [
   "Business development",
   "Revenue ownership",
 ];
+
+function SystemVisual({ kind }: { kind: "signals" | "sequence" | "memory" }) {
+  if (kind === "signals") {
+    return (
+      <div className="system-visual visual-signals" aria-hidden="true">
+        <span className="visual-kicker">Signal → message</span>
+        <div className="signal-map">
+          <span className="signal-ring signal-ring-outer" />
+          <span className="signal-ring signal-ring-inner" />
+          <span className="signal-dot signal-dot-coral" />
+          <span className="signal-dot signal-dot-blue" />
+          <span className="signal-dot signal-dot-ink" />
+          <span className="signal-core">
+            <strong>866</strong>
+            <small>signals</small>
+          </span>
+        </div>
+        <span className="signal-route" />
+        <div className="evidence-stack">
+          <span>Source</span>
+          <span>Confidence</span>
+          <span>Timing</span>
+        </div>
+        <div className="message-output">
+          <small>Output</small>
+          <strong>Relevant message</strong>
+          <span />
+          <span />
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "sequence") {
+    const stages = [
+      ["01", "Account"],
+      ["02", "Pressure"],
+      ["03", "Proof"],
+      ["04", "Angle"],
+      ["05", "Sequence"],
+      ["06", "QA"],
+    ];
+
+    return (
+      <div className="system-visual visual-sequence" aria-hidden="true">
+        <span className="visual-kicker">Research → sequence</span>
+        <span className="sequence-rail" />
+        <div className="sequence-grid">
+          {stages.map(([number, label]) => (
+            <span className="sequence-step" key={number}>
+              <small>{number}</small>
+              <strong>{label}</strong>
+            </span>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="system-visual visual-memory" aria-hidden="true">
+      <span className="visual-kicker">Conversation → context</span>
+      <div className="memory-inputs">
+        <span>Call</span>
+        <span>Note</span>
+        <span>Email</span>
+      </div>
+      <div className="memory-lines memory-lines-left" />
+      <div className="memory-core">
+        <span />
+        <strong>Memory</strong>
+        <small>with provenance</small>
+      </div>
+      <div className="memory-lines memory-lines-right" />
+      <div className="memory-outputs">
+        <span>Open loop</span>
+        <span>Next action</span>
+        <span>Brief</span>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -133,9 +215,7 @@ export default function Home() {
               rel="noreferrer"
               key={project.number}
             >
-              <div className="card-cover" aria-hidden="true">
-                <img className="card-cover-image" src={project.cover} alt="" />
-              </div>
+              <SystemVisual kind={project.visual} />
               <div className="card-top">
                 <span>{project.number}</span>
                 <span className="card-status">{project.category} ↗</span>
