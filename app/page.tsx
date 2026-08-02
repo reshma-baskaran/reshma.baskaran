@@ -31,6 +31,15 @@ const projects = [
   },
 ];
 
+const capabilities = [
+  "Demand generation",
+  "Integrated GTM",
+  "Market intelligence",
+  "Lifecycle growth",
+  "Partner marketing",
+  "Revenue ownership",
+];
+
 export default function Home() {
   return (
     <main>
@@ -83,12 +92,18 @@ export default function Home() {
           className="hero-capabilities"
           aria-label="Core marketing capabilities"
         >
-          <span>Demand generation</span>
-          <span>Integrated GTM</span>
-          <span>Market intelligence</span>
-          <span>Lifecycle growth</span>
-          <span>Partner marketing</span>
-          <span>Revenue ownership</span>
+          <div className="hero-capabilities-track">
+            <div className="hero-capabilities-group">
+              {capabilities.map((capability) => (
+                <span key={capability}>{capability}</span>
+              ))}
+            </div>
+            <div className="hero-capabilities-group" aria-hidden="true">
+              {capabilities.map((capability) => (
+                <span key={`repeat-${capability}`}>{capability}</span>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="hero-orbit" aria-hidden="true">
@@ -106,7 +121,7 @@ export default function Home() {
             <span className="section-index">01</span>
             <span className="section-label-text">Selected systems</span>
           </div>
-          <h2>What I&apos;m building and documenting.</h2>
+          <h2>What I&apos;m building.</h2>
         </div>
         <div className="lane-grid">
           {projects.map((project) => (

@@ -198,8 +198,7 @@ a {
   background: rgba(242, 239, 231, 0.94);
   border-bottom: 1px solid var(--line);
   border-top: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: repeat(6, max-content);
+  display: block;
   margin-top: 58px;
   overflow-x: auto;
   position: relative;
@@ -212,8 +211,24 @@ a {
   display: none;
 }
 
+.hero-capabilities-track,
+.hero-capabilities-group {
+  align-items: stretch;
+  display: flex;
+  width: max-content;
+}
+
+.hero-capabilities-group {
+  flex: none;
+}
+
+.hero-capabilities-group[aria-hidden="true"] {
+  display: none;
+}
+
 .hero-capabilities span {
   border-right: 1px solid var(--line);
+  display: flex;
   font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -222,8 +237,14 @@ a {
   white-space: nowrap;
 }
 
-.hero-capabilities span:first-child {
-  padding-left: 0;
+@keyframes capability-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .hero-orbit {
@@ -677,9 +698,20 @@ footer {
   }
 
   .hero-capabilities {
+    margin-left: -20px;
     margin-top: 68px;
     margin-right: -20px;
-    width: calc(100% + 20px);
+    overflow: hidden;
+    width: calc(100% + 40px);
+  }
+
+  .hero-capabilities-track {
+    animation: capability-marquee 24s linear infinite;
+    will-change: transform;
+  }
+
+  .hero-capabilities-group[aria-hidden="true"] {
+    display: flex;
   }
 
   .hero-capabilities span {
@@ -737,6 +769,14 @@ footer {
   }
 
   .orbit-ring {
+    animation: none;
+  }
+
+  .hero-capabilities {
+    overflow-x: auto;
+  }
+
+  .hero-capabilities-track {
     animation: none;
   }
 
