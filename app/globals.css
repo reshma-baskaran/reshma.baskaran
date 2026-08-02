@@ -433,6 +433,7 @@ a {
   color: inherit;
   border-bottom: 1px solid var(--line);
   border-right: 1px solid var(--line);
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   min-height: 520px;
@@ -457,6 +458,11 @@ a {
 .lane-card:hover {
   background: var(--paper-deep);
   transform: translateY(-3px);
+}
+
+.lane-card:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: -3px;
 }
 
 .card-cover {
@@ -504,6 +510,48 @@ a {
   margin-top: auto;
   padding-top: 13px;
   text-transform: uppercase;
+}
+
+.card-action {
+  align-items: center;
+  border: 1px solid var(--ink);
+  display: flex;
+  font-size: 0.69rem;
+  font-weight: 800;
+  justify-content: space-between;
+  letter-spacing: 0.1em;
+  margin-top: 18px;
+  padding: 10px 10px 10px 13px;
+  text-transform: uppercase;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.card-action-icon {
+  align-items: center;
+  background: var(--acid);
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  color: var(--ink);
+  display: flex;
+  font-size: 0.88rem;
+  height: 28px;
+  justify-content: center;
+  letter-spacing: 0;
+  transition: transform 180ms ease;
+  width: 28px;
+}
+
+.lane-card:hover .card-action,
+.lane-card:focus-visible .card-action {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.lane-card:hover .card-action-icon,
+.lane-card:focus-visible .card-action-icon {
+  transform: translate(2px, -2px);
 }
 
 .about-section {
@@ -739,6 +787,10 @@ footer {
 
   .lane-card {
     min-height: 300px;
+  }
+
+  .card-action {
+    margin-top: 20px;
   }
 
   .scope-meta {

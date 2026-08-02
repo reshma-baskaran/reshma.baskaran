@@ -33,10 +33,11 @@ const projects = [
 
 const capabilities = [
   "Demand generation",
-  "Integrated GTM",
+  "B2B integrated marketing",
   "Market intelligence",
-  "Lifecycle growth",
+  "Lifecycle marketing",
   "Partner marketing",
+  "Business development",
   "Revenue ownership",
 ];
 
@@ -145,6 +146,12 @@ export default function Home() {
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               <div className="card-examples">{project.details}</div>
+              <span className="card-action">
+                View project
+                <span className="card-action-icon" aria-hidden="true">
+                  ↗
+                </span>
+              </span>
             </a>
           ))}
         </div>
