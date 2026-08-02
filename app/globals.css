@@ -199,11 +199,13 @@ a {
   border-bottom: 1px solid var(--line);
   border-top: 1px solid var(--line);
   display: block;
+  margin-left: -42px;
+  margin-right: -42px;
   margin-top: 58px;
-  overflow-x: auto;
+  overflow: hidden;
   position: relative;
   scrollbar-width: none;
-  width: 100%;
+  width: calc(100% + 84px);
   z-index: 3;
 }
 
@@ -218,12 +220,17 @@ a {
   width: max-content;
 }
 
+.hero-capabilities-track {
+  animation: capability-marquee 24s linear infinite;
+  will-change: transform;
+}
+
 .hero-capabilities-group {
   flex: none;
 }
 
 .hero-capabilities-group[aria-hidden="true"] {
-  display: none;
+  display: flex;
 }
 
 .hero-capabilities span {
@@ -751,15 +758,6 @@ footer {
     margin-right: -20px;
     overflow: hidden;
     width: calc(100% + 40px);
-  }
-
-  .hero-capabilities-track {
-    animation: capability-marquee 24s linear infinite;
-    will-change: transform;
-  }
-
-  .hero-capabilities-group[aria-hidden="true"] {
-    display: flex;
   }
 
   .hero-capabilities span {
