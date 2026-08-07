@@ -4,8 +4,8 @@ const projects = [
     category: "Demand generation system",
     title: "ABM Engine",
     description:
-      "An evidence-first account research starter kit with 866 buying-signal definitions, source-backed scoring, and public research cases.",
-    details: "Signal library · Research engine · Account intelligence",
+      "A fail-closed account research engine with 21 portable cross-industry signals, the original 866 sector definitions, and approval-gated evidence.",
+    details: "Portable signals · Account workflow · Evidence gates",
     visual: "signals" as const,
     href: "https://github.com/reshma-baskaran/abm-engine",
   },
@@ -14,8 +14,8 @@ const projects = [
     category: "Skill + writing system",
     title: "Outbound Research & Writing",
     description:
-      "A source-backed starter kit for account research, six-touch sequence design, and pre-launch copy QA.",
-    details: "Account research · Message architecture · Sequence QA",
+      "A fail-closed research and writing system requiring complete campaign inputs, claim-level sources, distinct touch roles, and human review.",
+    details: "Readiness gate · Claim lineage · Sequence QA",
     visual: "sequence" as const,
     href: "https://github.com/reshma-baskaran/outbound-research-and-writing",
   },
@@ -24,8 +24,8 @@ const projects = [
     category: "Relationship intelligence system",
     title: "Relationship Intelligence Second Brain",
     description:
-      "A reusable Obsidian framework that turns strategic conversations into traceable relationship history, commitments, interests, and recurring briefs.",
-    details: "Vault scaffold · Provenance rules · Recurring briefs",
+      "An Obsidian system that separates public intelligence from direct relationships, ingests traceable sources, and generates source-linked briefs.",
+    details: "Evidence context · Source ingest · Whole-vault digest",
     visual: "memory" as const,
     href: "https://github.com/reshma-baskaran/relationship-intelligence-second-brain",
   },
@@ -53,15 +53,15 @@ function SystemVisual({ kind }: { kind: "signals" | "sequence" | "memory" }) {
           <span className="signal-dot signal-dot-blue" />
           <span className="signal-dot signal-dot-ink" />
           <span className="signal-core">
-            <strong>866</strong>
-            <small>signals</small>
+            <strong>21</strong>
+            <small>portable</small>
           </span>
         </div>
         <span className="signal-route" />
         <div className="evidence-stack">
           <span>Source</span>
-          <span>Confidence</span>
-          <span>Timing</span>
+          <span>Context</span>
+          <span>Freshness</span>
         </div>
         <div className="message-output">
           <small>Output</small>
