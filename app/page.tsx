@@ -213,6 +213,7 @@ export default function Home() {
               href={project.href}
               target="_blank"
               rel="noreferrer"
+              aria-label={`View ${project.title} on GitHub`}
               key={project.number}
             >
               <SystemVisual kind={project.visual} />
@@ -224,7 +225,7 @@ export default function Home() {
               <p>{project.description}</p>
               <div className="card-examples">{project.details}</div>
               <span className="card-action">
-                Explore system
+                View repository on GitHub
                 <span className="card-action-icon" aria-hidden="true">
                   ↗
                 </span>
