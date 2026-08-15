@@ -304,6 +304,121 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="proof-section" id="in-the-wild">
+        <div className="section-heading proof-heading">
+          <div className="section-label">
+            <span className="section-index">04</span>
+            <span className="section-label-text">In the wild</span>
+          </div>
+          <h2>
+            The work is better when it <span className="lime-highlight">leaves the screen.</span>
+          </h2>
+        </div>
+
+        <div className="proof-grid">
+          <a
+            className="feature-story"
+            href="https://shorts.growthx.club/p/the-3-people-marketing-team-at-mukesh"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Read the GrowthX day in the life feature"
+          >
+            <div className="proof-card-meta">
+              <span>Featured by GrowthX</span>
+              <span>Nov 2025 ↗</span>
+            </div>
+            <div className="feature-story-copy">
+              <span className="feature-mark" aria-hidden="true">GX</span>
+              <h3>A day in the life of Reshma Baskaran.</h3>
+              <p>
+                An inside look at the calls, channel bets, and operating rhythm
+                behind demand generation on a three-person marketing team.
+              </p>
+              <span className="proof-link">Read the feature <span aria-hidden="true">↗</span></span>
+            </div>
+            <div className="feature-timeline" aria-hidden="true">
+              <span>Stand-ups</span>
+              <span>Campaigns</span>
+              <span>Partners</span>
+              <span>Sales + product</span>
+            </div>
+          </a>
+
+          <article className="community-story">
+            <div className="proof-card-meta">
+              <span>Women-only community</span>
+              <span>Bengaluru</span>
+            </div>
+            <div className="community-photo-grid" aria-label="Photos from That’s What She Sold">
+              <img
+                className="community-photo community-photo-hero"
+                src="events/thats-what-she-sold-group.jpg"
+                alt="Women marketers gathered for That’s What She Sold in Bengaluru"
+                width="1600"
+                height="1200"
+                loading="lazy"
+              />
+              <img
+                className="community-photo community-photo-pitch"
+                src="events/pitch-challenge.jpg"
+                alt="A participant presenting during the That’s What She Sold pitch challenge"
+                width="1600"
+                height="1200"
+                loading="lazy"
+              />
+              <img
+                className="community-photo community-photo-portrait"
+                src="events/hosting-close.jpg"
+                alt="Reshma Baskaran speaking to women marketers at a community event"
+                width="897"
+                height="1600"
+                loading="lazy"
+              />
+              <img
+                className="community-photo community-photo-portrait"
+                src="events/hosting-room.jpg"
+                alt="Reshma Baskaran hosting a session for women marketers"
+                width="1015"
+                height="1600"
+                loading="lazy"
+              />
+              <img
+                className="community-photo community-photo-crowd"
+                src="events/women-marketers-group.jpg"
+                alt="Community photo from a women-only marketing meetup hosted by Reshma Baskaran"
+                width="1600"
+                height="1200"
+                loading="lazy"
+              />
+              <img
+                className="community-photo community-photo-hosts"
+                src="events/host-team.jpg"
+                alt="The women behind That’s What She Sold in front of the event display"
+                width="1600"
+                height="1200"
+                loading="lazy"
+              />
+            </div>
+            <div className="community-story-copy">
+              <h3>I host rooms where women marketers build, pitch, and learn together.</h3>
+              <p>
+                At That&apos;s What She Sold, 25+ women took on deliberately difficult
+                briefs and turned them into creative pitches in one hour—co-hosted
+                with Sakshi A. and Shravika Jain alongside LAN Club and Leap.
+              </p>
+              <a
+                className="proof-link"
+                href="https://www.linkedin.com/posts/reshma-baskaran_what-a-day-when-sakshi-a-and-i-hosted-activity-7438838780746170369-cVf7"
+                target="_blank"
+                rel="noreferrer"
+              >
+                See the event recap <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section className="contact-section">
         <div className="section-label">
           <span className="section-label-text">Find me</span>

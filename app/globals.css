@@ -358,6 +358,7 @@ a {
 .work-section,
 .about-section,
 .scope-section,
+.proof-section,
 .contact-section {
   border-bottom: 1px solid var(--line);
   padding: 110px 42px;
@@ -996,6 +997,194 @@ a {
   max-width: 260px;
 }
 
+.proof-section {
+  background: var(--paper-deep);
+}
+
+.proof-heading h2 {
+  max-width: 820px;
+}
+
+.proof-grid {
+  border-left: 1px solid var(--ink);
+  border-top: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+
+.feature-story,
+.community-story {
+  border-bottom: 1px solid var(--ink);
+  border-right: 1px solid var(--ink);
+  min-width: 0;
+}
+
+.feature-story {
+  background: var(--blue);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  min-height: 680px;
+  padding: 28px;
+  transition: transform 180ms ease;
+}
+
+.feature-story:hover,
+.feature-story:focus-visible {
+  transform: translateY(-3px);
+}
+
+.feature-story:focus-visible,
+.community-story .proof-link:focus-visible {
+  outline: 3px solid var(--acid);
+  outline-offset: -3px;
+}
+
+.proof-card-meta {
+  display: flex;
+  font-size: 0.67rem;
+  font-weight: 900;
+  justify-content: space-between;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.feature-story-copy {
+  margin: auto 0;
+  max-width: 560px;
+}
+
+.feature-mark {
+  align-items: center;
+  background: var(--acid);
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  color: var(--ink);
+  display: flex;
+  font-size: 0.72rem;
+  font-weight: 900;
+  height: 58px;
+  justify-content: center;
+  letter-spacing: -0.04em;
+  margin-bottom: 34px;
+  transform: rotate(-8deg);
+  width: 58px;
+}
+
+.feature-story h3,
+.community-story h3 {
+  font-size: clamp(2.35rem, 4.6vw, 4.8rem);
+  letter-spacing: -0.065em;
+  line-height: 0.92;
+  margin: 0;
+}
+
+.feature-story p,
+.community-story p {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  line-height: 1.42;
+  margin: 28px 0;
+  max-width: 600px;
+}
+
+.proof-link {
+  align-items: center;
+  border-bottom: 1px solid currentColor;
+  display: inline-flex;
+  font-size: 0.7rem;
+  font-weight: 900;
+  gap: 32px;
+  letter-spacing: 0.1em;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+  width: max-content;
+}
+
+.feature-timeline {
+  border-top: 1px solid rgba(242, 239, 231, 0.45);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: auto;
+}
+
+.feature-timeline span {
+  border-right: 1px solid rgba(242, 239, 231, 0.45);
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 13px 8px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.feature-timeline span:last-child {
+  border-right: 0;
+}
+
+.community-story {
+  background: var(--paper);
+  padding: 28px;
+}
+
+.community-photo-grid {
+  display: grid;
+  gap: 8px;
+  grid-auto-rows: 92px;
+  grid-template-columns: repeat(12, 1fr);
+  margin: 54px 0 36px;
+}
+
+.community-photo {
+  border: 1px solid var(--ink);
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 180ms ease, transform 180ms ease;
+  width: 100%;
+}
+
+.community-photo:hover {
+  filter: saturate(1.08) contrast(1.02);
+  transform: scale(1.015);
+  z-index: 2;
+}
+
+.community-photo-hero {
+  grid-column: span 8;
+  grid-row: span 2;
+  object-position: center 66%;
+}
+
+.community-photo-pitch {
+  grid-column: span 4;
+  grid-row: span 2;
+  object-position: center 64%;
+}
+
+.community-photo-portrait,
+.community-photo-crowd,
+.community-photo-hosts {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.community-photo-portrait {
+  object-position: center 40%;
+}
+
+.community-photo-crowd {
+  object-position: center 58%;
+}
+
+.community-photo-hosts {
+  object-position: center 64%;
+}
+
+.community-story h3 {
+  font-size: clamp(2rem, 3.7vw, 3.9rem);
+}
+
 .contact-section {
   background: var(--ink);
   color: var(--paper);
@@ -1117,6 +1306,7 @@ footer {
   .work-section,
   .about-section,
   .scope-section,
+  .proof-section,
   .contact-section {
     padding: 82px 20px;
   }
@@ -1170,6 +1360,41 @@ footer {
 
   .scope-grid {
     display: block;
+  }
+
+  .proof-grid {
+    display: block;
+  }
+
+  .feature-story {
+    min-height: 620px;
+  }
+
+  .feature-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-timeline span {
+    border-bottom: 1px solid rgba(242, 239, 231, 0.45);
+    padding: 11px 8px;
+  }
+
+  .community-photo-grid {
+    grid-auto-rows: 82px;
+    margin-top: 42px;
+  }
+
+  .community-photo-hero,
+  .community-photo-pitch {
+    grid-column: span 12;
+    grid-row: span 2;
+  }
+
+  .community-photo-portrait,
+  .community-photo-crowd,
+  .community-photo-hosts {
+    grid-column: span 6;
+    grid-row: span 2;
   }
 
   .scope-card {
