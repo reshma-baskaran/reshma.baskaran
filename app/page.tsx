@@ -323,24 +323,30 @@ export default function Home() {
             rel="noreferrer"
             aria-label="Read the GrowthX day in the life feature"
           >
-            <div className="proof-card-meta">
-              <span>Featured by GrowthX</span>
-              <span>Nov 2025 ↗</span>
+            <div className="feature-masthead">
+              <span className="feature-overline">Featured story</span>
+              <strong>GrowthX</strong>
+              <span className="feature-edition">Member profiles</span>
+            </div>
+            <div className="feature-dateline">
+              <span>Profile / Growth marketing</span>
+              <time dateTime="2025-11-20">20 November 2025</time>
             </div>
             <div className="feature-story-copy">
-              <span className="feature-mark" aria-hidden="true">GX</span>
               <h3>A day in the life of Reshma Baskaran.</h3>
               <p>
                 An inside look at the calls, channel bets, and operating rhythm
                 behind demand generation on a three-person marketing team.
               </p>
-              <span className="proof-link">Read the feature <span aria-hidden="true">↗</span></span>
+              <span className="feature-cta">
+                <span>Read my GrowthX profile</span>
+                <span className="feature-cta-arrow" aria-hidden="true">↗</span>
+              </span>
             </div>
-            <div className="feature-timeline" aria-hidden="true">
-              <span>Stand-ups</span>
-              <span>Campaigns</span>
-              <span>Partners</span>
-              <span>Sales + product</span>
+            <div className="feature-footer" aria-hidden="true">
+              <span>Growth</span>
+              <span>Systems</span>
+              <span>Behind the scenes</span>
             </div>
           </a>
 
@@ -402,9 +408,9 @@ export default function Home() {
             <div className="community-story-copy">
               <h3>I host rooms where women marketers build, pitch, and learn together.</h3>
               <p>
-                At That&apos;s What She Sold, 25+ women took on deliberately difficult
-                briefs and turned them into creative pitches in one hour—co-hosted
-                with Sakshi A. and Shravika Jain alongside LAN Club and Leap.
+                At That&apos;s What She Sold, I brought 25+ women marketers together
+                to take on deliberately difficult briefs and turn them into
+                creative pitches in one hour.
               </p>
               <a
                 className="proof-link"
