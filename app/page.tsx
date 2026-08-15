@@ -138,6 +138,7 @@ export default function Home() {
             href="https://github.com/reshma-baskaran"
             target="_blank"
             rel="noreferrer"
+            data-ph-capture-attribute-portfolio-action="github_profile_nav"
           >
             GitHub ↗
           </a>
@@ -214,6 +215,7 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
               aria-label={`View ${project.title} on GitHub`}
+              data-ph-capture-attribute-portfolio-action={`project_${project.visual}`}
               key={project.number}
             >
               <SystemVisual kind={project.visual} />
@@ -322,6 +324,7 @@ export default function Home() {
             target="_blank"
             rel="noreferrer"
             aria-label="Read the GrowthX day in the life feature"
+            data-ph-capture-attribute-portfolio-action="growthx_profile"
           >
             <div className="feature-masthead">
               <span className="feature-overline">Featured story</span>
@@ -417,6 +420,7 @@ export default function Home() {
                 href="https://www.linkedin.com/posts/reshma-baskaran_what-a-day-when-sakshi-a-and-i-hosted-activity-7438838780746170369-cVf7"
                 target="_blank"
                 rel="noreferrer"
+                data-ph-capture-attribute-portfolio-action="event_recap"
               >
                 See the event recap <span aria-hidden="true">↗</span>
               </a>
@@ -436,6 +440,7 @@ export default function Home() {
             href="https://github.com/reshma-baskaran"
             target="_blank"
             rel="noreferrer"
+            data-ph-capture-attribute-portfolio-action="github_profile_contact"
           >
             GitHub <span aria-hidden="true">↗</span>
           </a>
@@ -444,6 +449,7 @@ export default function Home() {
             href="https://www.linkedin.com/in/reshma-baskaran"
             target="_blank"
             rel="noreferrer"
+            data-ph-capture-attribute-portfolio-action="linkedin_profile_contact"
           >
             LinkedIn <span aria-hidden="true">↗</span>
           </a>
@@ -452,6 +458,7 @@ export default function Home() {
             href="https://x.com/BaskaranReshma"
             target="_blank"
             rel="noreferrer"
+            data-ph-capture-attribute-portfolio-action="x_profile_contact"
           >
             X · @BaskaranReshma <span aria-hidden="true">↗</span>
           </a>
