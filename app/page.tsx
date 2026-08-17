@@ -359,54 +359,66 @@ export default function Home() {
               <span>Bengaluru</span>
             </div>
             <div className="community-photo-grid" aria-label="Photos from That’s What She Sold">
-              <img
-                className="community-photo community-photo-hero"
-                src="events/thats-what-she-sold-group.jpg"
-                alt="Women marketers gathered for That’s What She Sold in Bengaluru"
-                width="1600"
-                height="1200"
-                loading="lazy"
-              />
-              <img
-                className="community-photo community-photo-pitch"
-                src="events/pitch-challenge.jpg"
-                alt="A participant presenting during the That’s What She Sold pitch challenge"
-                width="1600"
-                height="1200"
-                loading="lazy"
-              />
-              <img
-                className="community-photo community-photo-portrait"
-                src="events/hosting-close.jpg"
-                alt="Reshma Baskaran speaking to women marketers at a community event"
-                width="897"
-                height="1600"
-                loading="lazy"
-              />
-              <img
-                className="community-photo community-photo-portrait"
-                src="events/hosting-room.jpg"
-                alt="Reshma Baskaran hosting a session for women marketers"
-                width="1015"
-                height="1600"
-                loading="lazy"
-              />
-              <img
-                className="community-photo community-photo-crowd"
-                src="events/women-marketers-group.jpg"
-                alt="Community photo from a women-only marketing meetup hosted by Reshma Baskaran"
-                width="1600"
-                height="1200"
-                loading="lazy"
-              />
-              <img
-                className="community-photo community-photo-hosts"
-                src="events/host-team.jpg"
-                alt="The women behind That’s What She Sold in front of the event display"
-                width="1600"
-                height="1200"
-                loading="lazy"
-              />
+              <div className="community-gallery-lead">
+                <img
+                  className="community-photo community-photo-hero"
+                  src="events/thats-what-she-sold-group.jpg"
+                  alt="Women marketers gathered for That’s What She Sold in Bengaluru"
+                  width="1600"
+                  height="1200"
+                  loading="lazy"
+                />
+                <div className="community-gallery-stack">
+                  <img
+                    className="community-photo"
+                    src="events/pitch-challenge.jpg"
+                    alt="A participant presenting during the That’s What She Sold pitch challenge"
+                    width="1600"
+                    height="1200"
+                    loading="lazy"
+                  />
+                  <img
+                    className="community-photo"
+                    src="events/host-team.jpg"
+                    alt="The women behind That’s What She Sold in front of the event display"
+                    width="1600"
+                    height="1200"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div className="community-gallery-secondary">
+                <img
+                  className="community-photo community-photo-portrait"
+                  src="events/hosting-close.jpg"
+                  alt="Reshma Baskaran speaking to women marketers at a community event"
+                  width="897"
+                  height="1600"
+                  loading="lazy"
+                />
+                <img
+                  className="community-photo community-photo-portrait"
+                  src="events/hosting-room.jpg"
+                  alt="Reshma Baskaran hosting a session for women marketers"
+                  width="1015"
+                  height="1600"
+                  loading="lazy"
+                />
+                <div className="community-gallery-wide">
+                  <img
+                    className="community-photo"
+                    src="events/women-marketers-group.jpg"
+                    alt="Community photo from a women-only marketing meetup hosted by Reshma Baskaran"
+                    width="1600"
+                    height="1200"
+                    loading="lazy"
+                  />
+                  <p className="community-gallery-caption">
+                    <strong>25+ women</strong>
+                    <span>One hour. Difficult briefs. Live pitches.</span>
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="community-story-copy">
               <h3>I host rooms where women marketers build, pitch, and learn together.</h3>
