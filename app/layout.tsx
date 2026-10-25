@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteUrl =
-  "https://reshma-baskaran.github.io/reshma.baskaran";
+const siteUrl = "https://reshmabaskaran.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Reshma Baskaran — GTM + Growth Systems",
+  alternates: { canonical: "/" },
+  title: "Reshma Baskaran | GTM + Growth Systems",
   description:
     "GTM systems, growth experiments, practical agents, prompts, and personal projects by Reshma Baskaran.",
   openGraph: {
-    title: "Reshma Baskaran — GTM + Growth Systems",
+    title: "Reshma Baskaran | GTM + Growth Systems",
     description:
       "Building practical systems for demand generation, content, experimentation, and growth.",
     url: siteUrl,
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
         url: `${siteUrl}/og.png`,
         width: 1536,
         height: 1024,
-        alt: "Reshma Baskaran — GTM and Growth Systems",
+        alt: "Reshma Baskaran | GTM and Growth Systems",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reshma Baskaran — GTM + Growth Systems",
+    title: "Reshma Baskaran | GTM + Growth Systems",
     description:
       "Building practical systems for demand generation, content, experimentation, and growth.",
     images: [`${siteUrl}/og.png`],

@@ -50,3 +50,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 The site is configured for GitHub Pages and deploys from the `main` branch
 through GitHub Actions.
+
+The production URL is https://reshmabaskaran.com/. GitHub Pages serves the
+site at the domain root, with HTTPS and a redirect from www. DNS is managed
+in Cloudflare. Keep the GitHub Pages ownership-verification TXT record.
