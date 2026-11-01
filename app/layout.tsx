@@ -33,8 +33,12 @@ export const metadata: Metadata = {
     images: [`${siteUrl}/og.png`],
   },
   icons: {
-    icon: `${siteUrl}/og.png`,
-    shortcut: `${siteUrl}/og.png`,
+    icon: [
+      { url: "/favicon.svg?v=20261101", type: "image/svg+xml" },
+      { url: "/favicon-32.png?v=20261101", type: "image/png", sizes: "32x32" },
+    ],
+    shortcut: "/favicon.ico?v=20261101",
+    apple: "/apple-touch-icon.png?v=20261101",
   },
 };
 
