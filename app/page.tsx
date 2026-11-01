@@ -1,486 +1,67 @@
 const projects = [
-  {
-    number: "01",
-    category: "Demand generation system",
-    title: "ABM Engine",
-    description:
-      "A fail-closed account research engine with 21 portable cross-industry signals, the original 866 sector definitions, and approval-gated evidence.",
-    details: "Portable signals · Account workflow · Evidence gates",
-    visual: "signals" as const,
-    href: "https://github.com/reshma-baskaran/abm-engine",
-  },
-  {
-    number: "02",
-    category: "Skill + writing system",
-    title: "Outbound Research & Writing",
-    description:
-      "A fail-closed research and writing system requiring complete campaign inputs, claim-level sources, distinct touch roles, and human review.",
-    details: "Readiness gate · Claim lineage · Sequence QA",
-    visual: "sequence" as const,
-    href: "https://github.com/reshma-baskaran/outbound-research-and-writing",
-  },
-  {
-    number: "03",
-    category: "Relationship intelligence system",
-    title: "Relationship Intelligence Second Brain",
-    description:
-      "An Obsidian system that separates public intelligence from direct relationships, ingests traceable sources, and generates source-linked briefs.",
-    details: "Evidence context · Source ingest · Whole-vault digest",
-    visual: "memory" as const,
-    href: "https://github.com/reshma-baskaran/relationship-intelligence-second-brain",
-  },
+    { number: "01", category: "Demand generation system", title: "ABM Engine", description: "A fail-closed account research engine with 21 portable cross-industry signals, the original 866 sector definitions, and approval-gated evidence.", details: ["Portable signals", "Account workflow", "Evidence gates"], visual: "signals" as const, href: "https://github.com/reshma-baskaran/abm-engine" },
+    { number: "02", category: "Skill + writing system", title: "Outbound Research & Writing", description: "A fail-closed research and writing system requiring complete campaign inputs, claim-level sources, distinct touch roles, and human review.", details: ["Readiness gate", "Claim lineage", "Sequence QA"], visual: "sequence" as const, href: "https://github.com/reshma-baskaran/outbound-research-and-writing" },
+    { number: "03", category: "Relationship intelligence system", title: "Relationship Intelligence Second Brain", description: "An Obsidian system that separates public intelligence from direct relationships, ingests traceable sources, and generates source-linked briefs.", details: ["Evidence context", "Source ingest", "Whole-vault digest"], visual: "memory" as const, href: "https://github.com/reshma-baskaran/relationship-intelligence-second-brain" },
 ];
-
-const capabilities = [
-  "Demand generation",
-  "B2B integrated marketing",
-  "Market intelligence",
-  "Lifecycle marketing",
-  "Partner marketing",
-  "Business development",
-  "Revenue ownership",
+const capabilities = ["Demand generation", "B2B integrated marketing", "Market intelligence", "Lifecycle marketing", "Partner marketing", "Business development", "Revenue ownership"];
+const stages = [
+    { step: "−1 → 0", title: "Category creation", copy: "Working before the market has a shared language or playbook." },
+    { step: "0 → 1", title: "Build the first motion", copy: "Turning a new idea into a clear audience, narrative, and GTM system." },
+    { step: "1 → 10", title: "Make growth repeatable", copy: "Connecting research, campaigns, lifecycle, and measurement into a system." },
+    { step: "10 → scale", title: "Operate through complexity", copy: "Building with more stakeholders, markets, and operating constraints." },
 ];
-
-function SystemVisual({ kind }: { kind: "signals" | "sequence" | "memory" }) {
-  if (kind === "signals") {
-    return (
-      <div className="system-visual visual-signals" aria-hidden="true">
-        <span className="visual-kicker">Signal → message</span>
-        <div className="signal-map">
-          <span className="signal-ring signal-ring-outer" />
-          <span className="signal-ring signal-ring-inner" />
-          <span className="signal-dot signal-dot-coral" />
-          <span className="signal-dot signal-dot-blue" />
-          <span className="signal-dot signal-dot-ink" />
-          <span className="signal-core">
-            <strong>21</strong>
-            <small>portable</small>
-          </span>
-        </div>
-        <span className="signal-route" />
-        <div className="evidence-stack">
-          <span>Source</span>
-          <span>Context</span>
-          <span>Freshness</span>
-        </div>
-        <div className="message-output">
-          <small>Output</small>
-          <strong>Relevant message</strong>
-          <span />
-          <span />
-        </div>
-      </div>
-    );
-  }
-
-  if (kind === "sequence") {
-    const stages = [
-      ["01", "Account"],
-      ["02", "Pressure"],
-      ["03", "Proof"],
-      ["04", "Angle"],
-      ["05", "Sequence"],
-      ["06", "QA"],
-    ];
-
-    return (
-      <div className="system-visual visual-sequence" aria-hidden="true">
-        <span className="visual-kicker">Research → sequence</span>
-        <span className="sequence-rail" />
-        <div className="sequence-grid">
-          {stages.map(([number, label]) => (
-            <span className="sequence-step" key={number}>
-              <small>{number}</small>
-              <strong>{label}</strong>
-            </span>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="system-visual visual-memory" aria-hidden="true">
-      <span className="visual-kicker">Conversation → context</span>
-      <div className="memory-inputs">
-        <span>Call</span>
-        <span>Note</span>
-        <span>Email</span>
-      </div>
-      <div className="memory-lines memory-lines-left" />
-      <div className="memory-core">
-        <span />
-        <strong>Memory</strong>
-        <small>with provenance</small>
-      </div>
-      <div className="memory-lines memory-lines-right" />
-      <div className="memory-outputs">
-        <span>Open loop</span>
-        <span>Next action</span>
-        <span>Brief</span>
-      </div>
-    </div>
-  );
+const photos = [
+    ["thats-what-she-sold-group.jpg", "Women marketers gathered for That’s What She Sold in Bengaluru"],
+    ["hosting-close.jpg", "Reshma Baskaran speaking to women marketers at a community event"],
+    ["pitch-challenge.jpg", "A participant presenting during the That’s What She Sold pitch challenge"],
+    ["host-team.jpg", "The women behind That’s What She Sold in front of the event display"],
+    ["hosting-room.jpg", "Reshma Baskaran hosting a session for women marketers"],
+    ["women-marketers-group.jpg", "Community photo from a women-only marketing meetup hosted by Reshma Baskaran"],
+];
+function Arrow({ diagonal = false }: {
+    diagonal?: boolean;
+}) { return <span aria-hidden="true" className="arrow">{diagonal ? "↗" : "↘"}</span>; }
+function SystemVisual({ kind }: {
+    kind: "signals" | "sequence" | "memory";
+}) {
+    return <div className={`system-visual visual-${kind}`} aria-hidden="true">
+    <div className="visual-topline"><span>RB / SYSTEMS</span><span>{kind === "signals" ? "01" : kind === "sequence" ? "02" : "03"}</span></div>
+    {kind === "signals" ? <>
+      <div className="signal-orbit orbit-one"/><div className="signal-orbit orbit-two"/><div className="signal-orbit orbit-three"/>
+      <div className="signal-center"><strong>21</strong><span>portable signals</span></div>
+      <span className="signal-node node-one">Source</span><span className="signal-node node-two">Context</span><span className="signal-node node-three">Freshness</span>
+      <span className="orbit-point point-one"/><span className="orbit-point point-two"/>
+      <div className="visual-caption"><span>Signal</span><span>→</span><span>Relevant message</span></div>
+    </> : kind === "sequence" ? <>
+      <div className="sequence-flow">{["Account", "Pressure", "Proof", "Angle", "Sequence", "QA"].map((label, i) => <div key={label} className="sequence-step"><small>0{i + 1}</small><span>{label}</span><b>{i === 5 ? "✓" : "→"}</b></div>)}</div>
+      <div className="visual-caption"><span>Research</span><span>→</span><span>Human review</span></div>
+    </> : <>
+      <div className="memory-map"><div className="memory-sources"><span>Conversation</span><span>Note</span><span>Public source</span></div><div className="memory-connector"/><div className="memory-core"><span>✳</span><strong>Context</strong><small>with provenance</small></div><div className="memory-connector"/><div className="memory-sources"><span>Brief</span><span>Open loop</span><span>Next action</span></div></div>
+      <div className="visual-caption"><span>Information</span><span>→</span><span>Traceable intelligence</span></div>
+    </>}
+  </div>;
 }
-
 export default function Home() {
-  return (
-    <main>
-      <nav className="site-nav" aria-label="Primary navigation">
-        <a className="wordmark" href="#top" aria-label="Reshma Baskaran home">
-          RB<span className="wordmark-dot">.</span>
-        </a>
-        <div className="nav-links">
-          <a href="#work">Work</a>
-          <a href="#about">About</a>
-          <a
-            className="nav-cta"
-            href="https://github.com/reshma-baskaran"
-            target="_blank"
-            rel="noreferrer"
-            data-ph-capture-attribute-portfolio-action="github_profile_nav"
-          >
-            GitHub ↗
-          </a>
-        </div>
-      </nav>
-
-      <section className="hero" id="top">
-        <div className="hero-kicker">
-          <span className="status-dot" aria-hidden="true" />
-          GTM engineer · Growth hacker · Hybrid athlete
-        </div>
-        <figure className="hero-portrait">
-          <img
-            src="reshma-baskaran-headshot.png"
-            alt="Reshma Baskaran"
-          />
-          <figcaption>Reshma Baskaran · India</figcaption>
-        </figure>
-        <h1>
-          Growth, built
-          <br />
-          like a <em>system.</em>
-        </h1>
-        <div className="hero-bottom">
-          <p>
-            I design practical systems that turn research, content, campaigns,
-            and AI workflows into more repeatable growth.
-          </p>
-          <a className="text-link" href="#work">
-            Explore the work <span aria-hidden="true">↓</span>
-          </a>
-        </div>
-
-        <div
-          className="hero-capabilities"
-          aria-label="Core marketing capabilities"
-        >
-          <div className="hero-capabilities-track">
-            <div className="hero-capabilities-group">
-              {capabilities.map((capability) => (
-                <span key={capability}>{capability}</span>
-              ))}
-            </div>
-            <div className="hero-capabilities-group" aria-hidden="true">
-              {capabilities.map((capability) => (
-                <span key={`repeat-${capability}`}>{capability}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="hero-orbit" aria-hidden="true">
-          <span className="orbit-ring orbit-ring-outer" />
-          <span className="orbit-ring orbit-ring-middle" />
-          <span className="orbit-ring orbit-ring-inner" />
-          <span className="orbit-ring orbit-ring-core" />
-          <span className="orbit-center">GTM</span>
-        </div>
+    return <>
+    <a className="skip-link" href="#main">Skip to content</a>
+    <div className="dark-intro"><header className="site-nav wrap" id="top"><a className="wordmark" href="#top" aria-label="Reshma Baskaran home">RB<span>.</span></a><nav aria-label="Primary navigation"><a href="#work">Work</a><a href="#about">About me</a><a href="#contact">Contact</a></nav><a className="nav-cta" href="https://github.com/reshma-baskaran" target="_blank" rel="noreferrer" data-ph-capture-attribute-portfolio-action="github_profile_nav">GitHub <Arrow diagonal/></a></header></div>
+    <main id="main">
+      <div className="dark-intro">
+      <section className="hero wrap" aria-labelledby="hero-title">
+        <p className="hero-eyebrow"><span className="status-dot"/>GTM engineer · Growth hacker · Hybrid athlete</p>
+        <div className="hero-name" aria-hidden="true"><span>Reshma</span><span>Baskaran</span></div>
+        <div className="hero-portrait"><img src="/reshma-hero-cutout.png" alt="Reshma Baskaran" width="1122" height="1402" fetchPriority="high"/></div>
+        <div className="hero-copy"><h1 id="hero-title">Growth, built<br />like a <em>system.</em></h1><p>I design practical systems that turn research, content, campaigns, and AI workflows into more repeatable growth.</p></div>
+        <a className="hero-work-link text-link" href="#work">Explore the work <span aria-hidden="true">↓</span></a><span className="hero-caption">Reshma Baskaran / India</span>
       </section>
-
-      <section className="work-section" id="work">
-        <div className="section-heading">
-          <div className="section-label">
-            <span className="section-index">01</span>
-            <span className="section-label-text">Selected systems</span>
-          </div>
-          <h2>What I&apos;m building.</h2>
-        </div>
-        <div className="lane-grid">
-          {projects.map((project) => (
-            <a
-              className="lane-card"
-              href={project.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`View ${project.title} on GitHub`}
-              data-ph-capture-attribute-portfolio-action={`project_${project.visual}`}
-              key={project.number}
-            >
-              <SystemVisual kind={project.visual} />
-              <div className="card-top">
-                <span>{project.number}</span>
-                <span className="card-status">{project.category} ↗</span>
-              </div>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <div className="card-examples">{project.details}</div>
-              <span className="card-action">
-                View repository on GitHub
-                <span className="card-action-icon" aria-hidden="true">
-                  ↗
-                </span>
-              </span>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section className="about-section" id="about">
-        <div>
-          <div className="section-label">
-            <span className="section-index">02</span>
-            <span className="section-label-text">About</span>
-          </div>
-          <h2>
-            Part marketer, part operator, <span className="lime-highlight">always curious.</span>
-          </h2>
-        </div>
-        <div className="about-copy">
-          <p>
-            I work at the intersection of go-to-market strategy, demand
-            generation, and applied AI. I&apos;m interested in the machinery
-            behind growth: how ideas become systems, how systems become habits,
-            and how the work becomes easier to understand and improve.
-          </p>
-          <p>
-            This is my working portfolio: a public record of the prompts,
-            agents, experiments, scripts, teardowns, and small products I build
-            along the way.
-          </p>
-          <p>
-            Outside work, I&apos;m a hybrid athlete training across strength and
-            endurance. Both pursuits draw on the same instinct: build a system,
-            measure what matters, and keep improving it.
-          </p>
-        </div>
-      </section>
-
-      <section className="scope-section" id="scope">
-        <div className="section-heading">
-          <div className="section-label">
-            <span className="section-index">03</span>
-            <span className="section-label-text">Operating range</span>
-          </div>
-          <h2>
-            From category <span className="lime-highlight">creation to scale.</span>
-          </h2>
-        </div>
-        <div className="scope-meta" aria-label="Experience scope">
-          <span>5+ years</span>
-          <span>India · US · Southeast Asia · Middle East</span>
-          <span>Unicorn-scale startup experience</span>
-        </div>
-        <div className="scope-grid">
-          <article className="scope-card">
-            <span className="scope-number">−1→0</span>
-            <h3>Category creation</h3>
-            <p>Working before the market has a shared language or playbook.</p>
-          </article>
-          <article className="scope-card">
-            <span className="scope-number">0→1</span>
-            <h3>Build the first motion</h3>
-            <p>Turning a new idea into a clear audience, narrative, and GTM system.</p>
-          </article>
-          <article className="scope-card">
-            <span className="scope-number">1→10</span>
-            <h3>Make growth repeatable</h3>
-            <p>Connecting research, campaigns, lifecycle, and measurement into a system.</p>
-          </article>
-          <article className="scope-card">
-            <span className="scope-number">10→scale</span>
-            <h3>Operate through complexity</h3>
-            <p>Building with more stakeholders, markets, and operating constraints.</p>
-          </article>
-        </div>
-      </section>
-
-      <section className="proof-section" id="in-the-wild">
-        <div className="section-heading proof-heading">
-          <div className="section-label">
-            <span className="section-index">04</span>
-            <span className="section-label-text">In the wild</span>
-          </div>
-          <h2>
-            The work is better when it <span className="lime-highlight">leaves the screen.</span>
-          </h2>
-        </div>
-
-        <div className="proof-grid">
-          <a
-            className="feature-story"
-            href="https://shorts.growthx.club/p/the-3-people-marketing-team-at-mukesh"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Read the GrowthX day in the life feature"
-            data-ph-capture-attribute-portfolio-action="growthx_profile"
-          >
-            <div className="feature-masthead">
-              <span className="feature-overline">Featured story</span>
-              <strong>GrowthX</strong>
-              <span className="feature-edition">Member profiles</span>
-            </div>
-            <div className="feature-dateline">
-              <span>Profile / Growth marketing</span>
-              <time dateTime="2025-11-20">20 November 2025</time>
-            </div>
-            <div className="feature-story-copy">
-              <h3>A day in the life of Reshma Baskaran.</h3>
-              <p>
-                An inside look at the calls, channel bets, and operating rhythm
-                behind demand generation on a three-person marketing team.
-              </p>
-              <span className="feature-cta">
-                <span>Read my GrowthX profile</span>
-                <span className="feature-cta-arrow" aria-hidden="true">↗</span>
-              </span>
-            </div>
-            <div className="feature-footer" aria-hidden="true">
-              <span>Growth</span>
-              <span>Systems</span>
-              <span>Behind the scenes</span>
-            </div>
-          </a>
-
-          <article className="community-story">
-            <div className="proof-card-meta">
-              <span>Women-only community</span>
-              <span>Bengaluru</span>
-            </div>
-            <div className="community-photo-grid" aria-label="Photos from That’s What She Sold">
-              <div className="community-gallery-lead">
-                <img
-                  className="community-photo community-photo-hero"
-                  src="events/thats-what-she-sold-group.jpg"
-                  alt="Women marketers gathered for That’s What She Sold in Bengaluru"
-                  width="1600"
-                  height="1200"
-                  loading="lazy"
-                />
-                <div className="community-gallery-stack">
-                  <img
-                    className="community-photo"
-                    src="events/pitch-challenge.jpg"
-                    alt="A participant presenting during the That’s What She Sold pitch challenge"
-                    width="1600"
-                    height="1200"
-                    loading="lazy"
-                  />
-                  <img
-                    className="community-photo"
-                    src="events/host-team.jpg"
-                    alt="The women behind That’s What She Sold in front of the event display"
-                    width="1600"
-                    height="1200"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-              <div className="community-gallery-secondary">
-                <img
-                  className="community-photo community-photo-portrait"
-                  src="events/hosting-close.jpg"
-                  alt="Reshma Baskaran speaking to women marketers at a community event"
-                  width="897"
-                  height="1600"
-                  loading="lazy"
-                />
-                <img
-                  className="community-photo community-photo-portrait"
-                  src="events/hosting-room.jpg"
-                  alt="Reshma Baskaran hosting a session for women marketers"
-                  width="1015"
-                  height="1600"
-                  loading="lazy"
-                />
-                <div className="community-gallery-wide">
-                  <img
-                    className="community-photo"
-                    src="events/women-marketers-group.jpg"
-                    alt="Community photo from a women-only marketing meetup hosted by Reshma Baskaran"
-                    width="1600"
-                    height="1200"
-                    loading="lazy"
-                  />
-                  <p className="community-gallery-caption">
-                    <strong>25+ women</strong>
-                    <span>One hour. Difficult briefs. Live pitches.</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="community-story-copy">
-              <h3>I host rooms where women marketers build, pitch, and learn together.</h3>
-              <p>
-                At That&apos;s What She Sold, I brought 25+ women marketers together
-                to take on deliberately difficult briefs and turn them into
-                creative pitches in one hour.
-              </p>
-              <a
-                className="proof-link"
-                href="https://www.linkedin.com/posts/reshma-baskaran_what-a-day-when-sakshi-a-and-i-hosted-activity-7438838780746170369-cVf7"
-                target="_blank"
-                rel="noreferrer"
-                data-ph-capture-attribute-portfolio-action="event_recap"
-              >
-                See the event recap <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section className="contact-section">
-        <div className="section-label">
-          <span className="section-label-text">Find me</span>
-        </div>
-        <h2>Follow the builds as they ship.</h2>
-        <div className="contact-links">
-          <a
-            className="button-link"
-            href="https://github.com/reshma-baskaran"
-            target="_blank"
-            rel="noreferrer"
-            data-ph-capture-attribute-portfolio-action="github_profile_contact"
-          >
-            GitHub <span aria-hidden="true">↗</span>
-          </a>
-          <a
-            className="button-link"
-            href="https://www.linkedin.com/in/reshma-baskaran"
-            target="_blank"
-            rel="noreferrer"
-            data-ph-capture-attribute-portfolio-action="linkedin_profile_contact"
-          >
-            LinkedIn <span aria-hidden="true">↗</span>
-          </a>
-          <a
-            className="button-link"
-            href="https://x.com/BaskaranReshma"
-            target="_blank"
-            rel="noreferrer"
-            data-ph-capture-attribute-portfolio-action="x_profile_contact"
-          >
-            X · @BaskaranReshma <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
-
-      <footer>
-        <span>© {new Date().getFullYear()} Reshma Baskaran</span>
-        <span>Built in public, one system at a time.</span>
-      </footer>
-    </main>
-  );
+      <div className="hero-facts wrap"><div><span className="eyebrow">The intersection</span><p>GTM strategy + applied AI</p></div><div><span className="eyebrow">Experience</span><p>5+ years <span className="muted">/ Unicorn-scale startups</span></p></div><div><span className="eyebrow">Worked across</span><p>India · US · Southeast Asia · Middle East</p></div><div><span className="eyebrow">Beyond work</span><p>Strength + endurance</p></div></div>
+      </div>
+      <section className="work-section section wrap" id="work" aria-labelledby="work-title"><div className="section-heading"><div><p className="eyebrow section-label">01 / Selected systems</p><h2 id="work-title">What I’m<br /><em>building.</em></h2></div><p className="section-intro">The prompts, agents, experiments, scripts, and small products behind the work. Built to make growth more repeatable.</p></div><div className="project-list">{projects.map(project => <a key={project.number} className="project" href={project.href} target="_blank" rel="noreferrer" aria-label={`View ${project.title} on GitHub`} data-ph-capture-attribute-portfolio-action={`project_${project.visual}`}><SystemVisual kind={project.visual}/><div className="project-copy"><div className="project-meta"><span>{project.number} / {project.category}</span><Arrow diagonal/></div><h3>{project.title}</h3><p>{project.description}</p><ul className="project-tags">{project.details.map(detail => <li key={detail}>{detail}</li>)}</ul><span className="text-link project-link">Explore the repository <Arrow diagonal/></span></div></a>)}</div></section>
+      <section className="about-section section wrap" id="about" aria-labelledby="about-title"><p className="eyebrow section-label">02 / About me</p><div className="about-layout"><div className="about-aside"><div className="about-photo"><img src="/reshma-baskaran-headshot.png" alt="Portrait of Reshma Baskaran" width="700" height="700" loading="lazy"/></div><p>GTM engineer.<br />Growth hacker.<br /><em>Always curious.</em></p></div><div className="about-main"><h2 id="about-title">Part marketer,<br />part operator,<br /><em>always curious.</em></h2><div className="about-paragraph"><span className="eyebrow">The work</span><p>I work at the intersection of go-to-market strategy, demand generation, and applied AI. I’m interested in the machinery behind growth: how ideas become systems, how systems become habits, and how the work becomes easier to understand and improve.</p></div><div className="about-paragraph"><span className="eyebrow">The practice</span><p>This is my working portfolio: a public record of the prompts, agents, experiments, scripts, teardowns, and small products I build along the way.</p></div><div className="about-paragraph"><span className="eyebrow">Beyond the screen</span><p>Outside work, I’m a hybrid athlete training across strength and endurance. Both pursuits draw on the same instinct: build a system, measure what matters, and keep improving it.</p></div></div></div></section>
+      <section className="scope-section section wrap" id="scope" aria-labelledby="scope-title"><div className="section-heading"><div><p className="eyebrow section-label">03 / Operating range</p><h2 id="scope-title">From category<br /><em>creation to scale.</em></h2></div><p className="section-intro">5+ years across India, the US, Southeast Asia, and the Middle East. Experience inside unicorn-scale startups.</p></div><div className="scope-list">{stages.map(stage => <article key={stage.step} className="scope-row"><span className="scope-step">{stage.step}</span><h3>{stage.title}</h3><p>{stage.copy}</p></article>)}</div><div className="capabilities"><p className="eyebrow">Across the motion</p><ul>{capabilities.map(capability => <li key={capability}>{capability}</li>)}</ul></div></section>
+      <section className="proof-section section wrap" id="in-the-wild" aria-labelledby="proof-title"><div className="section-heading"><div><p className="eyebrow section-label">04 / In the wild</p><h2 id="proof-title">The work is better<br />when it <em>leaves the screen.</em></h2></div></div><a className="feature-story" href="https://shorts.growthx.club/p/the-3-people-marketing-team-at-mukesh" target="_blank" rel="noreferrer" aria-label="Read the GrowthX day in the life feature" data-ph-capture-attribute-portfolio-action="growthx_profile"><div className="feature-masthead"><span className="eyebrow">Featured in</span><strong>GrowthX</strong><span className="eyebrow">Member profiles / 20 November 2025</span></div><div className="feature-copy"><p className="eyebrow">Behind the scenes</p><h3>A day in the life<br />of Reshma Baskaran.</h3><p>An inside look at the calls, channel bets, and operating rhythm behind demand generation on a three-person marketing team.</p><span className="text-link">Read the profile <Arrow diagonal/></span></div><span className="feature-arrow" aria-hidden="true">↗</span></a>
+        <article className="community-story"><div className="community-heading"><div><p className="eyebrow">Community / Bengaluru</p><h3>Rooms where women<br /><em>build, pitch, and learn.</em></h3></div><div className="community-intro"><p>At That’s What She Sold, I brought 25+ women marketers together to take on deliberately difficult briefs and turn them into creative pitches in one hour.</p><a className="text-link" href="https://www.linkedin.com/posts/reshma-baskaran_what-a-day-when-sakshi-a-and-i-hosted-activity-7438838780746170369-cVf7" target="_blank" rel="noreferrer" data-ph-capture-attribute-portfolio-action="event_recap">See the event recap <Arrow diagonal/></a></div></div><div className="community-gallery" aria-label="Photos from That’s What She Sold">{photos.map(([src, alt], i) => <figure key={src} className={`gallery-photo gallery-photo-${i + 1}`}><img src={`/events/${src}`} alt={alt} loading="lazy" width="1600" height="1200"/></figure>)}</div><div className="gallery-footer"><span>25+ women marketers</span><span>One hour. Difficult briefs. Live pitches.</span></div></article></section>
+      <section className="contact-section section wrap" id="contact" aria-labelledby="contact-title"><p className="eyebrow section-label">05 / Find me</p><h2 id="contact-title">Follow the builds<br /><em>as they ship.</em><Arrow /></h2><div className="contact-links"><a href="https://github.com/reshma-baskaran" target="_blank" rel="noreferrer" data-ph-capture-attribute-portfolio-action="github_profile_contact">GitHub <Arrow diagonal/></a><a href="https://www.linkedin.com/in/reshma-baskaran" target="_blank" rel="noreferrer" data-ph-capture-attribute-portfolio-action="linkedin_profile_contact">LinkedIn <Arrow diagonal/></a><a href="https://x.com/BaskaranReshma" target="_blank" rel="noreferrer" data-ph-capture-attribute-portfolio-action="x_profile_contact">X <span className="contact-handle">@BaskaranReshma</span><Arrow diagonal/></a></div></section>
+    </main><footer className="wrap"><a className="wordmark" href="#top" aria-label="Back to top">RB<span>.</span></a><p>© {new Date().getFullYear()} Reshma Baskaran</p><p>Built in public, one system at a time.</p><a href="#top" className="back-top">Back to top ↑</a></footer>
+  </>;
 }
