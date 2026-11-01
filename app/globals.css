@@ -1621,15 +1621,14 @@ footer p,.back-top {
   overflow: clip;
 }
 .intro-frame {
-  position: sticky;
-  top: 0;
+  position: relative;
   height: 100vh;
   height: 100dvh;
   min-height: 670px;
   display: flex;
   flex-direction: column;
   transform-origin: 50% 48%;
-  will-change: transform, opacity;
+  will-change: auto;
 }
 .intro-frame .site-nav,
 .intro-frame .hero-facts {
@@ -1688,58 +1687,33 @@ footer p,.back-top {
   }
 }
 
-/* Repeat the same pinned zoom and rising-sheet reveal for every scene. */
+/* Continuous document flow, with no pinned or overlapping sections. */
 .scroll-experience {
   display: contents;
 }
 .scene-stage {
   position: relative;
-  overflow-anchor: none;
-  background: #e9ebe6;
-  overflow: clip;
+  background: #fff;
 }
 .scene-stage.intro-stage {
   background: #0b0c0c;
 }
 .scene-frame {
-  position: sticky;
-  top: 0;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  position: relative;
   background: #fff;
-  transform-origin: 50% 48%;
 }
 .scene-frame.intro-frame {
+  display: flex;
   justify-content: flex-start;
   background: #0b0c0c;
+  min-height: 670px;
 }
 .page-content {
-  background: transparent;
+  background: #fff;
   overflow: visible;
 }
 .community-section .community-story {
   margin-top: 0;
-}
-@media (prefers-reduced-motion: reduce) {
-  .scene-frame {
-    position: relative;
-  }
-}
-.scene-frame.intro-frame {
-  min-height: 670px;
-}
-.work-section > .project {
-  grid-template-columns: 1.18fr 1fr;
-}
-.work-section > .project .system-visual {
-  order: 0;
-}
-.work-section > .project .project-copy {
-  order: 1;
-  padding-left: 0;
 }
 @media (max-width: 760px) {
   .scene-frame.intro-frame {
@@ -1750,18 +1724,6 @@ footer p,.back-top {
 @media (min-width: 761px) and (max-width: 900px) {
   .hero-name {
     font-size: 11vw;
-  }
-}
-
-/* Smooth the visual response to wheel increments while keeping native scrolling. */
-@media (prefers-reduced-motion: no-preference) {
-  .scene-frame {
-    transition:
-      transform 200ms cubic-bezier(.2, .8, .2, 1),
-      opacity 200ms cubic-bezier(.2, .8, .2, 1);
-  }
-  .scene-stage {
-    transition: clip-path 180ms cubic-bezier(.2, .8, .2, 1);
   }
 }
 
@@ -1786,5 +1748,12 @@ footer p,.back-top {
   }
   .community-gallery .gallery-photo:nth-child(-n+2) {
     grid-column: span 2;
+  }
+}
+@media (max-width: 380px) {
+  .site-nav nav {
+    left: 45%;
+    gap: 14px;
+    font-size: 10px;
   }
 }
