@@ -86,8 +86,14 @@ export default function ScrollExperience({ children }: { children: ReactNode }) 
     window.visualViewport?.addEventListener("resize", queueMeasure);
     preference.addEventListener("change", queueMeasure);
     measure();
+    // Restore a direct section link after the scene heights are established.
+    const initialTarget = scenes.find(({ stage }) => stage.id && `#${stage.id}` === window.location.hash);
+    const navigationFrame = initialTarget
+      ? window.requestAnimationFrame(() => initialTarget.stage.scrollIntoView({ behavior: "instant", block: "start" }))
+      : 0;
 
     return () => {
+      window.cancelAnimationFrame(navigationFrame);
       observer.disconnect();
       window.cancelAnimationFrame(animationFrame);
       window.cancelAnimationFrame(measurementFrame);

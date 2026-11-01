@@ -1764,3 +1764,27 @@ footer p,.back-top {
     transition: clip-path 180ms cubic-bezier(.2, .8, .2, 1);
   }
 }
+
+/* Keep workshop photographs in consistent 4:3 frames. */
+.community-gallery .gallery-photo {
+  grid-column: span 4;
+  height: auto;
+  aspect-ratio: 4 / 3;
+}
+.community-gallery .gallery-photo:nth-child(-n+2) {
+  grid-column: span 6;
+}
+.community-gallery .gallery-photo:nth-child(2) img {
+  object-position: 50% 30%;
+}
+@media (max-width: 760px) {
+  .community-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .community-gallery .gallery-photo {
+    grid-column: span 1;
+  }
+  .community-gallery .gallery-photo:nth-child(-n+2) {
+    grid-column: span 2;
+  }
+}
