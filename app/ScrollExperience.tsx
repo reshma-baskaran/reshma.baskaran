@@ -17,7 +17,8 @@ export default function ScrollExperience({ children }: { children: ReactNode }) 
       }));
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     let viewportHeight = window.innerHeight;
-    let distance = viewportHeight * 1.15;
+    let distance = viewportHeight * 1.35;
+    let holdDistance = viewportHeight * 0.22;
     let animationFrame = 0;
     let measurementFrame = 0;
 
@@ -39,8 +40,8 @@ export default function ScrollExperience({ children }: { children: ReactNode }) 
           scene.frame.style.removeProperty("opacity");
           scene.stage.style.removeProperty("clip-path");
         } else {
-          scene.frame.style.transform = `translate3d(0,${-viewportHeight * 0.09 * eased}px,0) scale(${1 + 0.12 * eased})`;
-          scene.frame.style.opacity = `${1 - eased * 0.86}`;
+          scene.frame.style.transform = `translate3d(0,${-viewportHeight * 0.055 * eased}px,0) scale(${1 + 0.08 * eased})`;
+          scene.frame.style.opacity = `${1 - eased * 0.65}`;
           // Clip the incoming sheet, preserving exact native anchor positions.
           if (next) {
             next.stage.style.clipPath = `inset(0 ${2.5 * (1 - eased)}% 0 round ${32 * (1 - eased)}px ${32 * (1 - eased)}px 0 0)`;
@@ -56,19 +57,21 @@ export default function ScrollExperience({ children }: { children: ReactNode }) 
     const measure = () => {
       measurementFrame = 0;
       viewportHeight = window.innerHeight;
-      distance = viewportHeight * 1.15;
+      distance = viewportHeight * 1.35;
+      holdDistance = viewportHeight * 0.22;
       // Set every stage's geometry before reading any document positions.
       scenes.forEach((scene, index) => {
         const height = scene.frame.offsetHeight;
         const last = index === scenes.length - 1;
-        scene.stage.style.height = `${height + (!preference.matches && !last ? distance : 0)}px`;
+        scene.stage.style.height = `${height + (!preference.matches && !last ? holdDistance + distance : 0)}px`;
         scene.stage.style.marginTop = index && !preference.matches ? `${-viewportHeight}px` : "0px";
         scene.frame.style.top = preference.matches ? "0px" : `${-Math.max(0, height - viewportHeight)}px`;
         scene.progress = -1;
       });
       scenes.forEach((scene) => {
         const top = scene.stage.getBoundingClientRect().top + window.scrollY;
-        scene.start = top + Math.max(0, scene.frame.offsetHeight - viewportHeight);
+        // Let the panel settle at its natural size before the next transition.
+        scene.start = top + Math.max(0, scene.frame.offsetHeight - viewportHeight) + holdDistance;
       });
       render();
     };

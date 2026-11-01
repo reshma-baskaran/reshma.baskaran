@@ -191,7 +191,7 @@ a:focus-visible {
   letter-spacing:-.075em;
   color:#222523;
   display:flex;
-  gap:.25em;
+  gap:.85em;
   white-space:nowrap;
   z-index:0;
   user-select:none
@@ -1221,6 +1221,8 @@ footer p,.back-top {
     right:0
   }
   .hero-name span:last-child {
+    position:relative;
+    left:12px;
     align-self:flex-end
   }
   .hero-portrait {
@@ -1692,6 +1694,7 @@ footer p,.back-top {
 }
 .scene-stage {
   position: relative;
+  overflow-anchor: none;
   background: #e9ebe6;
   overflow: clip;
 }
@@ -1741,5 +1744,11 @@ footer p,.back-top {
 @media (max-width: 760px) {
   .scene-frame.intro-frame {
     min-height: 700px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 900px) {
+  .hero-name {
+    font-size: 11vw;
   }
 }
