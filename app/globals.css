@@ -193,17 +193,19 @@ a:focus-visible {
   display:flex;
   gap:.25em;
   white-space:nowrap;
-  z-index:-2;
+  z-index:0;
   user-select:none
 }
 
 .hero-portrait {
   position:absolute;
   bottom:0;
-  left:48%;
-  width:49%;
+  left:50%;
+  transform:translateX(-50%);
+  width:50%;
   height:98%;
-  z-index:-1;
+  z-index:1;
+  pointer-events:none;
   overflow:hidden;
   mask-image:linear-gradient(#000 90%,transparent 100%)
 }
@@ -213,7 +215,7 @@ a:focus-visible {
   top:0;
   left:50%;
   transform:translateX(-50%);
-  height:128%;
+  height:140%;
   width:auto;
   max-width:none
 }
@@ -222,12 +224,12 @@ a:focus-visible {
   position:absolute;
   left:0;
   bottom:100px;
-  width:56%;
+  width:42%;
   z-index:2
 }
 
 .hero h1 {
-  font-size:clamp(58px,6.5vw,102px);
+  font-size:clamp(48px,4.8vw,74px);
   line-height:1.04;
   letter-spacing:-.065em;
   font-weight:500;
@@ -240,7 +242,12 @@ a:focus-visible {
   letter-spacing:-.065em
 }
 
-.hero-copy p {
+.hero-description {
+  position:absolute;
+  right:0;
+  bottom:110px;
+  width:22%;
+  z-index:2;
   font-size:14px;
   line-height:1.8;
   color:#b7bab3;
@@ -265,8 +272,9 @@ a:focus-visible {
 
 .hero-work-link {
   position:absolute;
-  left:0;
-  bottom:32px
+  right:0;
+  bottom:62px;
+  z-index:3
 }
 
 .hero-caption {
@@ -1082,19 +1090,21 @@ footer p,.back-top {
     top:135px
   }
   .hero-portrait {
-    left:47%;
-    width:53%;
+    left:50%;
+    width:56%;
     height:93%
   }
   .hero-copy {
     bottom:115px;
-    width:65%
+    width:42%
   }
-  .hero-copy p {
+  .hero-description {
+    width:22%;
+    font-size:12px;
     max-width:315px
   }
   .hero h1 {
-    font-size:70px
+    font-size:clamp(42px,5.1vw,58px)
   }
   .hero-caption {
     font-size:8px
@@ -1190,7 +1200,7 @@ footer p,.back-top {
     font-size:13px
   }
   .hero {
-    height:800px;
+    height:920px;
     min-height:0
   }
   .hero-eyebrow {
@@ -1214,30 +1224,36 @@ footer p,.back-top {
     align-self:flex-end
   }
   .hero-portrait {
-    left:auto;
-    right:0;
+    left:50%;
+    right:auto;
     top:88px;
     bottom:auto;
     width:100%;
-    height:500px;
-    z-index:-1
+    height:480px;
+    z-index:1
   }
   .hero-copy {
-    bottom:94px;
+    bottom:180px;
     width:100%
   }
   .hero h1 {
-    font-size:clamp(50px,12vw,80px);
+    font-size:clamp(40px,10.8vw,66px);
     line-height:1.03;
     max-width:90%
   }
-  .hero-copy p {
+  .hero-description {
+    right:auto;
+    left:0;
+    bottom:85px;
+    width:100%;
     font-size:13px;
     max-width:330px;
     margin-top:23px;
     line-height:1.8
   }
   .hero-work-link {
+    left:0;
+    right:auto;
     bottom:31px
   }
   .hero-caption {
@@ -1507,10 +1523,10 @@ footer p,.back-top {
 
 @media(max-width:380px) {
   .hero {
-    height:760px
+    height:860px
   }
   .hero-portrait {
-    height:455px;
+    height:425px;
     top:100px
   }
   .hero-name {
@@ -1523,7 +1539,7 @@ footer p,.back-top {
   .hero-caption {
     display:none
   }
-  .hero-copy p {
+  .hero-description {
     font-size:12px;
     max-width:295px
   }
@@ -1575,4 +1591,23 @@ footer p,.back-top {
   background: var(--bg);
   color: var(--ink);
   color-scheme: dark;
+}
+
+.hero-name span {
+  display: inline-block;
+  transform-origin: center bottom;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .hero-name:hover span {
+    animation: name-bounce 680ms cubic-bezier(.22,.61,.36,1) both;
+  }
+  .hero-name:hover span:last-child {
+    animation-delay: 65ms;
+  }
+}
+@keyframes name-bounce {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  30% { transform: translateY(-9px) rotate(-.35deg); }
+  55% { transform: translateY(3px) rotate(.15deg); }
+  78% { transform: translateY(-3px) rotate(0); }
 }

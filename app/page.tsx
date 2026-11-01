@@ -51,7 +51,7 @@ export default function Home() {
         <p className="hero-eyebrow"><span className="status-dot"/>GTM engineer · Growth hacker · Hybrid athlete</p>
         <div className="hero-name" aria-hidden="true"><span>Reshma</span><span>Baskaran</span></div>
         <div className="hero-portrait"><img src="/reshma-hero-cutout.png" alt="Reshma Baskaran" width="1122" height="1402" fetchPriority="high"/></div>
-        <div className="hero-copy"><h1 id="hero-title">Growth, built<br />like a <em>system.</em></h1><p>I design practical systems that turn research, content, campaigns, and AI workflows into more repeatable growth.</p></div>
+        <div className="hero-copy"><h1 id="hero-title">Leading GTM<br />and growth<br />marketing for<br /><em>startups.</em></h1></div><p className="hero-description">I design practical systems that turn research, content, campaigns, and AI workflows into more repeatable growth.</p>
         <a className="hero-work-link text-link" href="#work">Explore the work <span aria-hidden="true">↓</span></a><span className="hero-caption">Reshma Baskaran / India</span>
       </section>
       <div className="hero-facts wrap"><div><span className="eyebrow">The intersection</span><p>GTM strategy + applied AI</p></div><div><span className="eyebrow">Experience</span><p>5+ years <span className="muted">/ Unicorn-scale startups</span></p></div><div><span className="eyebrow">Worked across</span><p>India · US · Southeast Asia · Middle East</p></div><div><span className="eyebrow">Beyond work</span><p>Strength + endurance</p></div></div>
