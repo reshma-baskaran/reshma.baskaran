@@ -1757,3 +1757,45 @@ footer p,.back-top {
     font-size: 10px;
   }
 }
+
+/* An editorial closing page with a project feature and quiet social navigation. */
+.portfolio-footer{display:block;background:#f6f5f1;color:#22271f;padding:100px 0 28px;min-height:0;border-top:1px solid #dddfd5}
+.footer-top{display:grid;grid-template-columns:1.2fr 1fr;gap:100px;padding-bottom:70px}
+.portfolio-footer .eyebrow{font-size:10px;letter-spacing:1.8px;color:#68715f;display:flex;align-items:center;gap:9px}
+.footer-intro h2{font-size:clamp(48px,6.3vw,90px);line-height:1.04;margin-top:32px;letter-spacing:-.055em}
+.footer-building{align-self:end;border-left:1px solid #d2d7ca;padding-left:50px;padding-bottom:4px}
+.building-dot{width:6px;height:6px;background:#637952;border-radius:50%;display:inline-block}
+.building-project{display:block;margin-top:26px}
+.building-name{display:block;font-size:clamp(28px,3.1vw,46px);line-height:1.08;letter-spacing:-.045em}
+.building-name em{font-family:var(--serif);font-weight:400}
+.building-url{display:flex;justify-content:space-between;align-items:center;gap:24px;font-size:12px;color:#58664c;margin-top:24px;padding-bottom:10px;border-bottom:1px solid #bfc8b5;max-width:330px}
+.building-url .arrow{font-size:22px;transition:transform .2s}
+.building-project:hover .arrow{transform:translate(3px,-3px)}
+.footer-socials{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #cfd5c8;border-bottom:1px solid #cfd5c8}
+.footer-socials a{display:flex;justify-content:space-between;align-items:center;gap:30px;padding:24px 28px;border-right:1px solid #cfd5c8;font-size:14px;transition:background .2s}
+.footer-socials a:first-child{padding-left:0}
+.footer-socials a:last-child{border-right:0;padding-right:0}
+.footer-socials a>span:first-child{display:flex;align-items:center;gap:26px}
+.footer-socials small{font-family:monospace;font-size:9px;color:#7b8570}
+.footer-socials .arrow{font-size:23px;color:#637952}
+.footer-socials a:hover{background:#eceedf}
+.portfolio-footer .footer-signature{font-size:clamp(36px,10.5vw,158px);line-height:1;letter-spacing:-.065em;font-weight:400;color:#35402e;margin:58px 0 44px;white-space:nowrap}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid #cfd5c8;padding-top:23px}
+.portfolio-footer .footer-bottom p,.footer-bottom a{font-size:10px;color:#737b6c}
+.footer-bottom a{display:flex;gap:24px;color:#35402e}
+@media(max-width:760px){
+ .portfolio-footer{padding:66px 0 24px}
+ .footer-top{grid-template-columns:1fr;gap:45px;padding-bottom:42px}
+ .footer-intro h2{font-size:58px;margin-top:24px}
+ .footer-building{border-left:0;border-top:1px solid #cfd5c8;padding:28px 0 0}
+ .building-name{font-size:36px}
+ .building-url{max-width:none}
+ .footer-socials a{padding:20px 12px;font-size:12px;gap:8px}
+ .footer-socials a>span:first-child{gap:10px}
+ .footer-socials small{display:none}
+ .footer-socials .arrow{font-size:18px}
+ .portfolio-footer .footer-signature{margin:38px 0 29px;font-size:10.5vw}
+ .footer-bottom{gap:12px;padding-top:20px}
+ .portfolio-footer .footer-bottom p,.footer-bottom a{font-size:8px}
+ .footer-bottom a{gap:12px}
+}
