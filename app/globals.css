@@ -21,7 +21,7 @@ html {
 
 body {
   margin:0;
-  background:var(--bg);
+  background:#0b0c0c;
   color:var(--ink);
   font-family:var(--sans);
   -webkit-font-smoothing:antialiased
@@ -223,7 +223,7 @@ a:focus-visible {
 .hero-copy {
   position:absolute;
   left:0;
-  bottom:100px;
+  bottom:64px;
   width:42%;
   z-index:2
 }
@@ -1074,7 +1074,7 @@ footer p,.back-top {
     font-size:176px
   }
   .hero-copy {
-    bottom:120px
+    bottom:80px
   }
 }
 
@@ -1095,7 +1095,7 @@ footer p,.back-top {
     height:93%
   }
   .hero-copy {
-    bottom:115px;
+    bottom:64px;
     width:42%
   }
   .hero-description {
@@ -1233,7 +1233,7 @@ footer p,.back-top {
     z-index:1
   }
   .hero-copy {
-    bottom:180px;
+    bottom:155px;
     width:100%
   }
   .hero h1 {
@@ -1610,4 +1610,78 @@ footer p,.back-top {
   30% { transform: translateY(-9px) rotate(-.35deg); }
   55% { transform: translateY(3px) rotate(.15deg); }
   78% { transform: translateY(-3px) rotate(0); }
+}
+
+/* The dark scene always covers the viewport, including tall displays. */
+.intro-stage {
+  position: relative;
+  background: #0b0c0c;
+  overflow: clip;
+}
+.intro-frame {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 670px;
+  display: flex;
+  flex-direction: column;
+  transform-origin: 50% 48%;
+  will-change: transform, opacity;
+}
+.intro-frame .site-nav,
+.intro-frame .hero-facts {
+  flex-shrink: 0;
+}
+.intro-frame .hero {
+  flex: 1 0 440px;
+  height: auto;
+  min-height: 440px;
+}
+.page-content {
+  position: relative;
+  z-index: 5;
+  display: flow-root;
+  background: #fff;
+  transform-origin: center top;
+  overflow: clip;
+}
+.footer-background {
+  background: #fff;
+}
+@media (max-width: 760px) {
+  .intro-frame {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 700px;
+  }
+  .intro-frame .hero {
+    flex: 1;
+    min-height: 0;
+  }
+  .intro-frame .hero-facts {
+    display: none;
+  }
+  .intro-frame .hero-portrait {
+    top: 88px;
+    height: clamp(300px, calc(100dvh - 350px), 500px);
+  }
+  .intro-frame .hero-copy {
+    bottom: 170px;
+  }
+  .intro-frame .hero h1 {
+    font-size: clamp(36px, 10.8vw, 52px);
+  }
+  .intro-frame .hero-description {
+    bottom: 70px;
+  }
+  .intro-frame .hero-work-link {
+    bottom: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-frame {
+    position: relative;
+    will-change: auto;
+  }
 }
