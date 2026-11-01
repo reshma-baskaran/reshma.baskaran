@@ -12,13 +12,12 @@ export default function ScrollExperience({ children }: { children: ReactNode }) 
       .map((stage) => ({
         stage,
         frame: stage.firstElementChild as HTMLDivElement,
-        start: 0,
+        top: 0,
         progress: -1,
       }));
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     let viewportHeight = window.innerHeight;
     let distance = viewportHeight * 1.35;
-    let holdDistance = viewportHeight * 0.22;
     let animationFrame = 0;
     let measurementFrame = 0;
 
@@ -26,25 +25,28 @@ export default function ScrollExperience({ children }: { children: ReactNode }) 
       animationFrame = 0;
       const scroll = window.scrollY;
       scenes.forEach((scene, index) => {
-        const last = index === scenes.length - 1;
-        const progress = preference.matches || last
-          ? 0
-          : Math.min(1, Math.max(0, (scroll - scene.start) / distance));
-        if (progress === scene.progress) return;
-        scene.progress = progress;
-        const eased = progress * progress * (3 - 2 * progress);
         const next = scenes[index + 1];
+        // Let the text stay still while the next sheet approaches. The zoom
+        // begins only after that sheet has entered the viewport.
+        const coverage = next && !preference.matches
+          ? Math.min(1, Math.max(0, (scroll + viewportHeight - next.top) / viewportHeight))
+          : 0;
+        if (coverage === scene.progress) return;
+        scene.progress = coverage;
+        const motion = Math.min(1, Math.max(0, (coverage - 0.18) / 0.82));
+        const eased = motion * motion * (3 - 2 * motion);
+        const reveal = coverage * coverage * (3 - 2 * coverage);
 
         if (preference.matches) {
           scene.frame.style.removeProperty("transform");
           scene.frame.style.removeProperty("opacity");
           scene.stage.style.removeProperty("clip-path");
         } else {
-          scene.frame.style.transform = `translate3d(0,${-viewportHeight * 0.055 * eased}px,0) scale(${1 + 0.08 * eased})`;
-          scene.frame.style.opacity = `${1 - eased * 0.65}`;
+          scene.frame.style.transform = `translate3d(0,${-viewportHeight * 0.035 * eased}px,0) scale(${1 + 0.08 * eased})`;
+          scene.frame.style.opacity = `${1 - eased * 0.45}`;
           // Clip the incoming sheet, preserving exact native anchor positions.
           if (next) {
-            next.stage.style.clipPath = `inset(0 ${2.5 * (1 - eased)}% 0 round ${32 * (1 - eased)}px ${32 * (1 - eased)}px 0 0)`;
+            next.stage.style.clipPath = `inset(0 ${2.5 * (1 - reveal)}% 0 round ${32 * (1 - reveal)}px ${32 * (1 - reveal)}px 0 0)`;
           }
         }
       });
@@ -58,20 +60,18 @@ export default function ScrollExperience({ children }: { children: ReactNode }) 
       measurementFrame = 0;
       viewportHeight = window.innerHeight;
       distance = viewportHeight * 1.35;
-      holdDistance = viewportHeight * 0.22;
       // Set every stage's geometry before reading any document positions.
       scenes.forEach((scene, index) => {
         const height = scene.frame.offsetHeight;
         const last = index === scenes.length - 1;
+        const holdDistance = viewportHeight * (index === 0 ? 0.24 : 0.36);
         scene.stage.style.height = `${height + (!preference.matches && !last ? holdDistance + distance : 0)}px`;
         scene.stage.style.marginTop = index && !preference.matches ? `${-viewportHeight}px` : "0px";
         scene.frame.style.top = preference.matches ? "0px" : `${-Math.max(0, height - viewportHeight)}px`;
         scene.progress = -1;
       });
       scenes.forEach((scene) => {
-        const top = scene.stage.getBoundingClientRect().top + window.scrollY;
-        // Let the panel settle at its natural size before the next transition.
-        scene.start = top + Math.max(0, scene.frame.offsetHeight - viewportHeight) + holdDistance;
+        scene.top = scene.stage.getBoundingClientRect().top + window.scrollY;
       });
       render();
     };

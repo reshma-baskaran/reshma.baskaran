@@ -1752,3 +1752,15 @@ footer p,.back-top {
     font-size: 11vw;
   }
 }
+
+/* Smooth the visual response to wheel increments while keeping native scrolling. */
+@media (prefers-reduced-motion: no-preference) {
+  .scene-frame {
+    transition:
+      transform 200ms cubic-bezier(.2, .8, .2, 1),
+      opacity 200ms cubic-bezier(.2, .8, .2, 1);
+  }
+  .scene-stage {
+    transition: clip-path 180ms cubic-bezier(.2, .8, .2, 1);
+  }
+}
