@@ -2271,3 +2271,4 @@ footer p,.back-top {
 @media(min-width:1700px){.hero-description{bottom:80px}}
 @media(max-width:380px){.site-nav nav{left:42%;gap:10px;font-size:10px}.nav-cta{padding:9px 10px;gap:8px}}
 @media(max-width:760px) and (prefers-reduced-motion:no-preference){.stack-pause{height:30svh}}
+.meeting-arrow{width:19px;height:19px;flex:none}
