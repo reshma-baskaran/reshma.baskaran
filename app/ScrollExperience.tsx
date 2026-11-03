@@ -10,6 +10,14 @@ export default function ScrollExperience({ children }: { children: ReactNode }) 
     const root = rootRef.current;
     if (!root) return;
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const stacked = root.querySelectorAll<HTMLElement>(".stacked-sections > .scene-stage:not(#community)");
+    const updateStackOffset = () => {
+      stacked.forEach((stage) => stage.style.setProperty("--stack-top", `${Math.min(0, window.innerHeight - stage.offsetHeight)}px`));
+    };
+    const resizeObserver = new ResizeObserver(updateStackOffset);
+    stacked.forEach((stage) => resizeObserver.observe(stage));
+    window.addEventListener("resize", updateStackOffset);
+    updateStackOffset();
     const animations = new Set<Animation>();
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(({ target, isIntersecting }) => {
@@ -25,7 +33,7 @@ export default function ScrollExperience({ children }: { children: ReactNode }) 
       });
     }, { threshold: 0.05 });
 
-    root.querySelectorAll(".scene-frame:not(.intro-frame)").forEach((frame) => observer.observe(frame));
+    root.querySelectorAll(".scene-frame:not(.intro-frame):not(.stacked-sections .scene-frame)").forEach((frame) => observer.observe(frame));
     const onPreferenceChange = () => {
       if (preference.matches) {
         animations.forEach((animation) => animation.cancel());
@@ -36,6 +44,8 @@ export default function ScrollExperience({ children }: { children: ReactNode }) 
 
     return () => {
       observer.disconnect();
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateStackOffset);
       animations.forEach((animation) => animation.cancel());
       preference.removeEventListener("change", onPreferenceChange);
     };

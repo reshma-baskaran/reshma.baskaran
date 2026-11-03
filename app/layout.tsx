@@ -32,14 +32,7 @@ export const metadata: Metadata = {
       "Building practical systems for demand generation, content, experimentation, and growth.",
     images: [`${siteUrl}/og.png`],
   },
-  icons: {
-    icon: [
-      { url: "/favicon.svg?v=20261101", type: "image/svg+xml" },
-      { url: "/favicon-32.png?v=20261101", type: "image/png", sizes: "32x32" },
-    ],
-    shortcut: "/favicon.ico?v=20261101",
-    apple: "/apple-touch-icon.png?v=20261101",
-  },
+  icons: { icon: [{ url: "/rb-monogram.svg", type: "image/svg+xml" }] },
 };
 
 export default function RootLayout({
