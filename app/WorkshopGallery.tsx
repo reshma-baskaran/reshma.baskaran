@@ -1,13 +1,34 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
 const photos = [
- ["growth-marketing-workshop-group.webp", "Participants at a growth marketing workshop in Bangalore"],
- ["growth-marketing-workshop-presenting.webp", "Presenting at a growth marketing workshop in Bangalore"],
- ["thats-what-she-sold-group.webp", "Women marketers gathered for That’s What She Sold"],
- ["hosting-close.webp", "Hosting a session for women marketers"],
- ["pitch-challenge.webp", "A participant presents during the pitch challenge"],
- ["host-team.webp", "The team behind That’s What She Sold"],
- ["hosting-room.webp", "Hosting a session at the meetup"],
- ["women-marketers-group.webp", "A women-only marketing meetup in Bangalore"]
+  { src: "growth-marketing-workshop-group.webp", alt: "Participants at a growth marketing workshop in Bangalore", title: "Growth marketing workshop", description: "40+ B2B marketers joined a hands-on workshop on building an end-to-end ABM system." },
+  { src: "growth-marketing-workshop-presenting.webp", alt: "Presenting at a growth marketing workshop in Bangalore", title: "Growth marketing workshop", description: "Breaking down automated research, persona-based targeting, AI agent skills and a campaign context layer." },
+  { src: "thats-what-she-sold-group.webp", alt: "Women marketers gathered for That’s What She Sold", title: "That’s What She Sold", description: "25+ women marketers came together to practise positioning and selling to a challenging audience." },
+  { src: "hosting-close.webp", alt: "Hosting a session for women marketers", title: "Hosting the conversation", description: "Hosting a session for women marketers at a Bangalore meetup." },
+  { src: "pitch-challenge.webp", alt: "A participant presents during the pitch challenge", title: "The pitch challenge", description: "Teams had 60 minutes to position and pitch an unusual product to a difficult audience." },
+  { src: "host-team.webp", alt: "The team behind That’s What She Sold", title: "The people behind the event", description: "Co-hosted with Sakshi Agarwal and Shravika Jain: a hands-on event about the art of selling." },
+  { src: "hosting-room.webp", alt: "Hosting a session at the meetup", title: "Finding your voice", description: "Hosting a conversation on finding your voice at a women marketers’ meetup in Bangalore." },
+  { src: "women-marketers-group.webp", alt: "A women-only marketing meetup in Bangalore", title: "Finding your voice", description: "Women marketers came together in Bangalore for an event about finding their voice." },
 ];
-export default function WorkshopGallery(){const [selected,setSelected]=useState<number|null>(null);useEffect(()=>{const f=(e:KeyboardEvent)=>{if(e.key==='Escape')setSelected(null)};window.addEventListener('keydown',f);return()=>window.removeEventListener('keydown',f)},[]);return <><div className="community-gallery" aria-label="Growth marketing workshops and community events in Bangalore">{photos.map(([src,alt],i)=><button className={`gallery-photo gallery-photo-${i+1}`} key={src} onClick={()=>setSelected(i)} aria-label={`View photo: ${alt}`}><img src={`/events/${src.replace(".webp", "-640.webp")}`} alt={alt} loading="lazy" decoding="async"/><span className="gallery-enlarge" aria-hidden="true">↗</span></button>)}</div>{selected!==null&&<div className="photo-overlay" onClick={()=>setSelected(null)} role="dialog" aria-modal="true" aria-label="Workshop photograph"><div className="photo-view" onClick={e=>e.stopPropagation()}><button className="photo-close" autoFocus onClick={()=>setSelected(null)} aria-label="Close photo">×</button><img src={`/events/${photos[selected][0]}`} alt={photos[selected][1]}/><p>{photos[selected][1]}</p></div></div>}</>}
+
+export default function WorkshopGallery() {
+  const [selected, setSelected] = useState<number | null>(null);
+  return <div className="community-gallery" aria-label="Growth marketing workshops and community events in Bangalore">
+    {photos.map((photo, i) => <button
+      className={`gallery-photo gallery-photo-${i + 1}${selected === i ? " is-revealed" : ""}`}
+      key={photo.src}
+      onPointerEnter={(event) => { if (event.pointerType !== "touch") setSelected(i); }}
+      onPointerLeave={(event) => { if (event.pointerType !== "touch") setSelected(null); }}
+      onFocus={(event) => { if (event.currentTarget.matches(":focus-visible")) setSelected(i); }}
+      onBlur={() => setSelected(null)}
+      onClick={() => { if (window.matchMedia("(hover: none)").matches) setSelected(selected === i ? null : i); }}
+      aria-expanded={selected === i}
+      aria-label={`${photo.alt}: ${photo.description}`}
+    >
+      <img src={`/events/${photo.src.replace(".webp", "-640.webp")}`} alt="" loading="lazy" decoding="async" />
+      <span className="gallery-enlarge" aria-hidden="true">{selected === i ? "×" : "+"}</span>
+      {selected === i && <span className="gallery-story"><span className="gallery-story-kicker">Workshops + events</span><span className="gallery-story-title">{photo.title}</span><span className="gallery-story-description">{photo.description}</span></span>}
+    </button>)}
+  </div>;
+}
