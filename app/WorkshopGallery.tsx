@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import posthog from "posthog-js";
 
 const photos = [
   { src: "growth-marketing-workshop-group.webp", alt: "Participants at a growth marketing workshop in Bangalore", title: "Growth marketing workshop", description: "40+ B2B marketers joined a hands-on workshop on building an end-to-end ABM system." },
@@ -14,15 +15,24 @@ const photos = [
 
 export default function WorkshopGallery() {
   const [selected, setSelected] = useState<number | null>(null);
+  const visiblePhoto = useRef<number | null>(null);
+  function reveal(i: number, method: "hover" | "keyboard" | "touch") {
+    if (visiblePhoto.current !== i && process.env.NODE_ENV === "production") {
+      posthog.capture("portfolio_photo_details_revealed", { photo: photos[i].src, event_title: photos[i].title, method });
+    }
+    visiblePhoto.current = i;
+    setSelected(i);
+  }
+  function hide() { visiblePhoto.current = null; setSelected(null); }
   return <div className="community-gallery" aria-label="Growth marketing workshops and community events in Bangalore">
     {photos.map((photo, i) => <button
       className={`gallery-photo gallery-photo-${i + 1}${selected === i ? " is-revealed" : ""}`}
       key={photo.src}
-      onPointerEnter={(event) => { if (event.pointerType !== "touch") setSelected(i); }}
-      onPointerLeave={(event) => { if (event.pointerType !== "touch") setSelected(null); }}
-      onFocus={(event) => { if (event.currentTarget.matches(":focus-visible")) setSelected(i); }}
-      onBlur={() => setSelected(null)}
-      onClick={() => { if (window.matchMedia("(hover: none)").matches) setSelected(selected === i ? null : i); }}
+      onPointerEnter={(event) => { if (event.pointerType !== "touch") reveal(i, "hover"); }}
+      onPointerLeave={(event) => { if (event.pointerType !== "touch") hide(); }}
+      onFocus={(event) => { if (event.currentTarget.matches(":focus-visible")) reveal(i, "keyboard"); }}
+      onBlur={hide}
+      onClick={() => { if (window.matchMedia("(hover: none)").matches) { if (selected === i) hide(); else reveal(i, "touch"); } }}
       aria-expanded={selected === i}
       aria-label={`${photo.alt}: ${photo.description}`}
     >
