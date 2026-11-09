@@ -27,7 +27,6 @@ export default function WorkshopGallery() {
       aria-label={`${photo.alt}: ${photo.description}`}
     >
       <img src={`/events/${photo.src.replace(".webp", "-640.webp")}`} alt="" loading="lazy" decoding="async" />
-      <span className="gallery-enlarge" aria-hidden="true">{selected === i ? "×" : "+"}</span>
       {selected === i && <span className="gallery-story"><span className="gallery-story-kicker">Workshops + events</span><span className="gallery-story-title">{photo.title}</span><span className="gallery-story-description">{photo.description}</span></span>}
     </button>)}
   </div>;
